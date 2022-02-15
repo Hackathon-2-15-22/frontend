@@ -1,4 +1,4 @@
-import * as tokenService from './tokenService'
+import * as tokenService from './tokens'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/auth`
 
 async function signup(user) {
