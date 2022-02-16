@@ -4,7 +4,7 @@ import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
 const Landing = props => {
 
   return (
-    <main className="">
+    <main>
       <LandingNavbar/>
       <div className="hero">
         <h1>Handle Your <br />Funds with Ease.</h1>

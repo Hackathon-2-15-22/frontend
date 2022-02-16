@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import styles from './Login.module.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
 
 const LoginPage = props => {
@@ -11,9 +10,9 @@ const LoginPage = props => {
   }
 
   return (
-    <main className={styles.container}>
+    <main>
       <LandingNavbar/>
-      <h1>Log In</h1>
+      <h1 className="text-center">Log In</h1>
       <p>{message}</p>
       <LoginForm
         handleSignupOrLogin={props.handleSignupOrLogin}

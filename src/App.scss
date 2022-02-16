@@ -1,8 +1,12 @@
 // Imports
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-// Variables
-$button-color: darkgray;
+// Color Variables
+$button: darkgray;
+$nav: gray;
+$nav-signup: white;
+$hero-background: aqua;
+$container: white;
 
 // Mixins
 @mixin column {
@@ -27,14 +31,19 @@ $button-color: darkgray;
 
 // General Styling
 a {text-decoration: none; color: black}
-button {background-color: $button-color;}
+button {background-color: $button;}
+main {background-color: $container;}
 
-// Landing Page
+// Utility Styling
+.block {margin: 5vh auto;}
+.text-center {text-align: center;}
+
+// Navbar
 .logo {margin: auto 0;}
 
 .nav {
     @include row;
-    background-color: grey;
+    background-color: $nav;
     * {padding: 1vh;}
 }
 
@@ -42,12 +51,13 @@ button {background-color: $button-color;}
     @include center;
     border: 1px;
     border-radius: 0.5em;
-    background-color: white;
+    background-color: $nav-signup;
 }
 
+// Landing Page
 .hero {
     @include column;
-    background-color: aqua;
+    background-color: $hero-background;
     padding: 10vh 0;
     h1 {
         @include center;
@@ -63,4 +73,5 @@ button {background-color: $button-color;}
         text-align: center;}
 }
 
-.block {margin: 5vh auto;}
+
+// Login Page
