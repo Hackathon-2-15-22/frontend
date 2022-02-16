@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-import styles from './LandingNavbar.module.css'
 
 const LandingNavbar = () => {
     return (
-        <div className={styles.navbar}>
-            <div className={styles.logo}>
-                LOGO
-            </div>
-            <div className={styles.buttons}>
+        <div className="navbar">
+            <div className="logo">LOGO</div>
+            <div className="button">
                 <Link to="/login">
-                    <button className={styles.login}>LOGIN</button>
+                    <button className="login">LOGIN</button>
                 </Link>
                 <Link to="/signup">
-                    <button className={styles.signup}>SIGN UP</button>
+                    <button className="signup">SIGN UP</button>
                 </Link>
             </div>
         </div>
