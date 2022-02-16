@@ -36,10 +36,13 @@ async function login(credentials) {
       body: JSON.stringify(credentials),
     })
     const json = await res.json()
+    console.log(json)
     if (json.token) {
+      console.log(json.token)
       tokenService.setToken(json.token)
     }
     if (json.err) {
+      console.log(json.err)
       throw new Error(json.err)
     }
   } catch (err) {
