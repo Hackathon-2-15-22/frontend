@@ -6,11 +6,48 @@
     margin-bottom: 50px;
 }
 
-.label,
-.button {
-    margin-right: 0.5rem;
+input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    width: 248px;
+    height: 39px;
+    left: 0px;
+    top: 23px;
+    background: #bcbcbc;
+    border-radius: 5px;
 }
 
+.signinButton {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    width: 248px;
+    height: 39px;
+    left: 0px;
+    background: #737373;
+    border-radius: 5px;
+}
+
+.label {
+    position: static;
+    width: 131px;
+    height: 19px;
+    left: 0px;
+    top: 0px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18.75px;
+}
+
+
 .inputContainer {
-    margin-bottom: 1rem;
+    margin-top: 18px;
 }
