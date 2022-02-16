@@ -5,6 +5,7 @@ import Landing from './pages/Landing/Landing';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
+import Onboarding from './pages/Onboarding/Onboarding';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
+        <Route path="/onboarding" element={<Onboarding user={user}/>} />
         <Route path="/home" element={<Home user={user} />} />
       </Routes>
     </div>
