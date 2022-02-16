@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 
 const LandingNavbar = () => {
     return (
-        <div className="navbar">
+        <div className="nav">
             <div className="logo">LOGO</div>
-            <div className="button">
+            <div className="row">
                 <Link to="/login">
-                    <button className="login">LOGIN</button>
+                    <a className="center">LOGIN</a>
                 </Link>
                 <Link to="/signup">
-                    <button className="signup">SIGN UP</button>
+                    <a className="signup">SIGN UP</a>
                 </Link>
             </div>
         </div>

@@ -1,23 +1,66 @@
-.container {
+// Imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+// Variables
+$button-color: darkgray;
+
+// Mixins
+@mixin column {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.column {@include column}
 
-.button {
-
-}
-
-.intro {
-
-}
-
-.navbar {
+@mixin row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+.row {@include row}
+
+@mixin center {
+    margin: auto; 
+    padding: auto;
+}
+.center {@include center}
+
+// General Styling
+a {text-decoration: none; color: black}
+button {background-color: $button-color;}
+
+// Landing Page
+.logo {margin: auto 0;}
 
 .nav {
-    padding: 10px;
+    @include row;
+    background-color: grey;
+    * {padding: 1vh;}
 }
+
+.signup {
+    @include center;
+    border: 1px;
+    border-radius: 0.5em;
+    background-color: white;
+}
+
+.hero {
+    @include column;
+    background-color: aqua;
+    padding: 10vh 0;
+    h1 {
+        @include center;
+        margin-bottom: 5vh;
+    }
+}
+
+.landing * {
+    @include column;
+    p {
+        @include center;
+        width: 70vw;
+        text-align: center;}
+}
+
+.block {margin: 5vh auto;}
