@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import styles from './Login.module.css';
+import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
 
 const LoginPage = props => {
   const [message, setMessage] = useState([''])
@@ -11,6 +12,7 @@ const LoginPage = props => {
 
   return (
     <main className={styles.container}>
+      <LandingNavbar/>
       <h1>Log In</h1>
       <p>{message}</p>
       <LoginForm
