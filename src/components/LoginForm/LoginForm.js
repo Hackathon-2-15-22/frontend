@@ -6,7 +6,7 @@ import * as authService from '../../utility/auth'
 const LoginForm = props => {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
+    pw: '',
   })
   const navigate = useNavigate()
 
@@ -20,7 +20,7 @@ const LoginForm = props => {
     try {
       await authService.login(formData)
       props.handleSignupOrLogin()
-      navigate('/')
+      navigate('/home')
     } catch (err) {
       props.updateMessage(err.message)
     }
@@ -50,7 +50,7 @@ const LoginForm = props => {
           autoComplete="off"
           id="password"
           value={formData.pw}
-          name="password"
+          name="pw"
           onChange={handleChange}
         />
       </div>
