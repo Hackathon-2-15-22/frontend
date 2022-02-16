@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import IncomeForm from '../../components/IncomeForm/IncomeForm';
 
 const Onboarding = props => {
-    const [income, setIncome] = useState(0)
+    // const [income, setIncome] = useState(0)
 
-    const handleChange = e => {
-        setIncome({...income, [e.target.name]: e.target.value})
-    }
+    // const handleChange = e => {
+    //     setIncome({...income, [e.target.name]: e.target.value})
+    // }
 
     return (
         <>
@@ -15,6 +16,7 @@ const Onboarding = props => {
             <div>
                 1. Your Monthly Income
             </div>
+            <IncomeForm {...props}/>
 
         </div>
         </>
