@@ -9,7 +9,7 @@ const LandingNavbar = () => {
                     <a className="center">LOGIN</a>
                 </Link>
                 <Link to="/signup">
-                    <a className="signup">SIGN UP</a>
+                    <a className="nav-signup">SIGN UP</a>
                 </Link>
             </div>
         </div>

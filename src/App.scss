@@ -1,12 +1,10 @@
 // Imports
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('http://fonts.cdnfonts.com/css/avenir-lt-std');
 
 // Color Variables
-$button: darkgray;
-$nav: gray;
-$nav-signup: white;
-$hero-background: aqua;
-$container: white;
+$button: #FFB04B;
+$dark-blue: #3EC3D5;
+$light-blue: #C3EDF2;
 
 // Mixins
 @mixin column {
@@ -30,34 +28,62 @@ $container: white;
 .center {@include center}
 
 // General Styling
-a {text-decoration: none; color: black}
-button {background-color: $button;}
-main {background-color: $container;}
+* {font-family: "Avenir LT Std", sans-serif;}
+a {
+    color: black;
+    text-decoration: none; 
+    
+    &.linked {
+        color: #0075FF; 
+        font-size: 0.875rem;
+        text-decoration: underline;
+    }
+}
+
+button {
+    background-color: $button;
+}
+
 
 // Utility Styling
 .block {margin: 5vh auto;}
 .text-center {text-align: center;}
 
+.heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.sub-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.linked {}
+
 // Navbar
-.logo {margin: auto 0;}
+.logo {
+    margin: auto 0;
+    font-size: 1.875rem;
+    font-weight: 800;
+}
 
 .nav {
     @include row;
-    background-color: $nav;
     * {padding: 1vh;}
 }
 
-.signup {
+.nav-signup {
     @include center;
     border: 1px;
     border-radius: 0.5em;
-    background-color: $nav-signup;
+    background-color: $button;
 }
 
 // Landing Page
 .hero {
     @include column;
-    background-color: $hero-background;
+    background-color: $light-blue;
     padding: 10vh 0;
     h1 {
         @include center;
