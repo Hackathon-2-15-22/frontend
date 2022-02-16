@@ -5,6 +5,7 @@ const Chart = () => {
   return (
     <>
     <div className="chart">
+      <h1>Your Spendings</h1>
       <PieChart
           animate
           animationDuration={1000}
@@ -17,6 +18,9 @@ const Chart = () => {
           label={({ dataEntry }) => dataEntry.title}
           // label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
         />    
+        <h3>Category</h3>
+        <h3>Category</h3>
+        <h3>Category</h3>
     </div>
     </>
   )
