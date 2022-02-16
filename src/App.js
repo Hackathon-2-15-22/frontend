@@ -5,6 +5,7 @@ import Landing from './pages/Landing/Landing';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
+import Expenses from './pages/Expenses/Expenses';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
         <Route path="/home" element={<Home user={user} />} />
+        <Route path="/Expenses" element={<Expenses user={user} />} />
       </Routes>
     </div>
   );
