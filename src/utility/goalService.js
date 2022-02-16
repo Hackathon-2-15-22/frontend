@@ -1,8 +1,8 @@
 import * as tokenService from '../utility/tokens.js'
 
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/expenses/`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/goals/`
 
-export const createExpense = async (expense) => {
+export const createGoal = async (goal) => {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -10,7 +10,7 @@ export const createExpense = async (expense) => {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(expense)
+      body: JSON.stringify(goal)
     })
     const data = await res.json()
     return data
@@ -19,9 +19,9 @@ export const createExpense = async (expense) => {
   }
 }
 
-export const getExpenseById = async (expenseId) => {
+export const getGoalById = async (goalId) => {
   try {
-    const res = await fetch(`${BASE_URL}${expenseId}`,
+    const res = await fetch(`${BASE_URL}${goalId}`,
     {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
@@ -33,7 +33,7 @@ export const getExpenseById = async (expenseId) => {
   }
 }
 
-export const getAllExpenses = async () => {
+export const getAllGoals = async () => {
   try {
     const res = await fetch(`${BASE_URL}`,
     {
@@ -47,15 +47,15 @@ export const getAllExpenses = async () => {
   }
 }
 
-export const updateExpense = async (expenseId, expense) => {
+export const updateGoal = async (goalId, goal) => {
   try {
-    const res = await fetch(`${BASE_URL}${expenseId}`, {
+    const res = await fetch(`${BASE_URL}${goalId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(expense)
+      body: JSON.stringify(goal)
     })
     const data = await res.json()
     return data
@@ -64,9 +64,9 @@ export const updateExpense = async (expenseId, expense) => {
   }
 }
 
-export const deleteExpense = async (expenseId) => {
+export const deleteGoal = async (goalId) => {
   try {
-    await fetch(`${BASE_URL}${expenseId}`, {
+    await fetch(`${BASE_URL}${goalId}`, {
       method: 'DELETE',
       headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
     })
