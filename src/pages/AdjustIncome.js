@@ -69,8 +69,8 @@ const AdjustIncome = (props) => {
   };
 
   return (
-    <div>
-      <h1>Adjust Your Income</h1>
+    <div className="adjust">
+      <h1 className="title">Adjust Your Income</h1>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <input

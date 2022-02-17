@@ -192,3 +192,47 @@ form * {align-items: flex-start;}
 }
 
 .collapsible {margin-bottom: 2vh;}
+
+/////////////////////////////////////////////
+// HOME
+/////////////////////////////////////////////
+
+.home {
+    @include column;
+    background-color: $light-blue;
+}
+
+.box {
+    background-color: white;
+    box-shadow: 0px 4px 50px rgba(0,0,0,0.12);
+    border-radius: 16px;
+    padding: 20px;
+    width: 75%;
+    margin-bottom: 3vh;
+    * {
+        @include column;
+        margin-bottom: 2vh;
+    }
+    button {@extend .b2; margin-bottom: 0px;}
+    h1 {
+        align-self: flex-start;
+        margin-top: 0px;
+    }
+    .bigNum {
+        font-size: 1.0325rem;
+    }
+}
+
+/////////////////////////////////////////////
+// ADJUST
+/////////////////////////////////////////////
+.adjust{
+    @include column;
+    input {
+        background: $light-blue;
+        border: 0px;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 2vh;
+    }
+}
