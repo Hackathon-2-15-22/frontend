@@ -3,14 +3,22 @@ import useCollapse from 'react-collapsed';
 import Navbar from '../../components/Navbar/Navbar';
 import IncomeForm from '../../components/IncomeForm/IncomeForm';
 
-function Collapsible1() {
-    const [ isExpanded, setExpanded ] = useState(false);
+
+////////// Income
+function CollapsibleIncome(props) {
+    const [ isExpanded, setExpanded ] = useState(true);
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
     function handleOnClick() {
         // Do more stuff with the click event!
         // Or, set isExpanded conditionally 
         setExpanded(!isExpanded);
+        props.setActive({
+            income: isExpanded,
+            expenses: false,
+            goals: false
+        })
+        props.makeActive()
     }
 
     return (
@@ -21,20 +29,28 @@ function Collapsible1() {
             </div>
             <div {...getCollapseProps()}>
                 <div className="content">
-                    <IncomeForm handleOnClick={handleOnClick}/>
+                    <IncomeForm handleOnClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>
     );
 }
 
-function Collapsible2() {
+/////////// Expenses
+function CollapsibleExpenses(props) {
     const [ isExpanded, setExpanded ] = useState(false);
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-function handleOnClick() {
+
+    function handleOnClick() {
         // Do more stuff with the click event!
         // Or, set isExpanded conditionally 
         setExpanded(!isExpanded);
+        props.setActive({
+            income: false,
+            expenses: isExpanded,
+            goals: false
+        })
+        props.makeActive()
     }
 return (
         <div className="collapsible">
@@ -51,13 +67,75 @@ return (
     );
 }
 
-const Onboarding = () => {
+/////////////// Goals
+function CollapsibleGoals(props) {
+    const [ isExpanded, setExpanded ] = useState(false);
+    const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
+
+    function handleOnClick() {
+        // Do more stuff with the click event!
+        // Or, set isExpanded conditionally 
+        setExpanded(!isExpanded);
+        props.setActive({
+            income: false,
+            expenses: false,
+            goals: isExpanded
+        })
+        props.makeActive()
+    }
+return (
+        <div className="collapsible">
+            <div className="header" {...getToggleProps({onClick: handleOnClick})}>
+                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
+                3. Your Saving Goals
+            </div>
+            <div {...getCollapseProps()}>
+                <div className="content">
+                    <IncomeForm/>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+const Onboarding = (props) => {
     
+    const [active, setActive] = useState({
+        income: true,
+        expenses: false,
+        goals: false
+    })
+
+    function makeActive() {
+        if (active.income === 'false' && active.goals === 'false') {
+            setActive({
+                income: false,
+                expenses: true,
+                goals: false
+            })
+        } else if (active.income === 'false' && active.expenses === 'false') {
+            setActive({
+                income: false,
+                expenses: false,
+                goals: true
+            })
+        } else if (active.expenses === 'false' && active.goals === 'false') {
+            setActive({
+                income: true,
+                expenses: false,
+                goals: false
+            })
+        }
+    }
+
+
+
     return (
         <>
             <Navbar/>
-            <Collapsible1 />
-            <Collapsible2/>
+            <CollapsibleIncome user={props.user} makeActive={makeActive} setActive={setActive}/>
+            <CollapsibleExpenses user={props.user} makeActive={makeActive} setActive={setActive}/>
+            <CollapsibleGoals user={props.user} makeActive={makeActive} setActive={setActive}/>
         </>
     )
 }
