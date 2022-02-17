@@ -131,7 +131,6 @@ const Onboarding = (props) => {
 
     return (
         <>
-            <Navbar/>
             <CollapsibleIncome user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleExpenses user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleGoals user={props.user} makeActive={makeActive} setActive={setActive}/>
