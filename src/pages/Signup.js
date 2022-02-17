@@ -12,7 +12,7 @@ const Signup = (props) => {
   return (
     <>
       <main class="column">
-        <h1 className='logo'>Welcome to ea<span>$</span>e</h1>
+        <h1 className='title'>Welcome to ea<span>$</span>e</h1>
         <img src={welcome} alt="ease logo"/>
         <p>{message}</p>
         <SignupForm {...props} updateMessage={updateMessage} />

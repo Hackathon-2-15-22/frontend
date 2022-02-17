@@ -35,6 +35,12 @@ $light-grey: #E7E7E7;
 }
 .center {@include center}
 
+@mixin title {
+    font-size: 1.875rem;
+    font-weight: 800;
+}
+.title {@include title}
+
 @mixin heading {
     font-size: 1.5rem;
     font-weight: 800;
@@ -87,10 +93,7 @@ span {
 /////////////////////////////////////////////
 // NAVBAR
 /////////////////////////////////////////////
-.logo {
-    font-size: 1.875rem;
-    font-weight: 800;
-}
+
 
 .nav {
     @include row;
@@ -98,7 +101,7 @@ span {
     .logo {margin-left: 0.5rem;}
 }
 
-.login {
+.menu {
     @include center;
     border-radius: 0.5em;
     background-color: $button;

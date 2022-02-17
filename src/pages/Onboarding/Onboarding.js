@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import useCollapse from 'react-collapsed';
-import Navbar from '../../components/Navbar/Navbar';
 import IncomeForm from '../../components/IncomeForm/IncomeForm';
 
 function Collapsible1() {
@@ -55,7 +54,6 @@ const Onboarding = () => {
     
     return (
         <>
-            <Navbar/>
             <Collapsible1 />
             <Collapsible2/>
         </>

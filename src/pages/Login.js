@@ -12,7 +12,7 @@ const LoginPage = (props) => {
   return (
     <>
       <main className='column'>
-        <h1 className='logo'>Welcome to ea<span>$</span>e</h1>
+        <h1 className='title'>Welcome to ea<span>$</span>e</h1>
         <img src={welcome} alt="ease logo"/>
         <p>{message}</p>
         <LoginForm

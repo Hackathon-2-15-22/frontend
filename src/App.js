@@ -1,14 +1,13 @@
+import './App.scss';
 import { useState } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import * as authService from './utility/auth';
+import Navbar from './components/Navbar';
 import Landing from './pages/Landing';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
-import Expenses from './pages/Expenses/Expenses';
-import './App.scss';
-import LandingNavbar from './components/LandingNavbar';
 
 function App() {
 
@@ -27,7 +26,7 @@ function App() {
 
   return (
     <div>
-      <LandingNavbar/>
+      <Navbar/>
       <Routes>
         {user && localStorage.getItem("token") ? (
           <>
