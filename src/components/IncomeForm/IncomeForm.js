@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import {getUser} from '../../utility/auth';
 import { createIncome } from '../../utility/incomeService';
 
 const IncomeForm = props => {
@@ -20,7 +19,7 @@ const IncomeForm = props => {
         let sum = parseInt(formData.income) + parseInt(formData.additionalIncome)
         createIncome(sum)
     }
-    
+
     return (
         <form
             autoComplete="off"
