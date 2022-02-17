@@ -1,4 +1,3 @@
-import styles from './Home.module.css';
 import Chart from '../../components/Home/Chart';
 import Income from '../../components/Home/Income';
 import Goal from '../../components/Home/Goal';
@@ -91,19 +90,28 @@ const Home = ({ user }) => {
     calculateExpenses()
   },);
 
-    const date = new Date();
-    const n = date.toDateString();
-    const t = date.toLocaleDateString();
+  // const date = new Date();
+  // const n = date.toDateString();
+  // const t = date.toLocaleDateString();
 
 
   return (
-    <main className={styles.container}>
-      <h1>Dashboard</h1>
-      <h1>Today is {t}</h1>
-      <Goal />
-      <Income userWealth={userWealth} />
-      <Expense userFundsLeft={userFundsLeft} userWealth={userWealth} userExpenses={userExpenses}/>
-      <Chart />
+
+    <main className="home">
+      <h1 className='title text-center'>Your Dashboard</h1>
+      <div class="box">
+        <Goal />
+      </div>
+      <div class="box">
+        <Income userWealth={userWealth} />
+      </div>
+      <div class="box">
+        <Expense userFundsLeft={userFundsLeft} userWealth={userWealth} userExpenses={userExpenses}/>
+      </div>
+      <div class="box">
+        <Chart />
+      </div>
+
     </main>
   )
 }

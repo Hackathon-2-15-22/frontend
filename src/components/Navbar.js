@@ -1,8 +1,6 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { logout } from '../utility/auth';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
-    const navigate = useNavigate()
+const Navbar = (props) => {
     let location = useLocation().pathname    
     return (
         <div className="nav">
@@ -24,11 +22,7 @@ const Navbar = () => {
                 </>
             ) : (
                 <>
-                    <button className='menu' 
-                        onClick={()=> {
-                            logout()
-                            navigate('/')
-                    }}>
+                    <button className='menu' onClick={props.logout}>
                         Logout
                     </button>
                 </>
