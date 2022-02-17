@@ -9,13 +9,14 @@ const Navbar = () => {
             <Link to="/">
                 <div className="title">ea<span>$</span>e</div>
             </Link>
-            {location=='/' ? (
+            {location==='/' ? (
                 <>
                     <Link to="/login">
                         <div className='menu'>Login</div>
                     </Link>
                 </>
-            ) : location=='/signup' || location=='/login' ? (
+            ) : location==='/signup' 
+            || location==='/login' ? (
                 <>
                     <Link to='/'>
                         <div className='menu'>Back</div>

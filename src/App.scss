@@ -126,8 +126,10 @@ span {
     @include column;
     p {
         @include center;
+        @extend .text-center;
         width: 70vw;
-        text-align: center;}
+        max-width: 560px;
+    }
     img {height: 4rem;}
 }
 
