@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar logout={handleLogout}/>
       <Routes>
         {user && localStorage.getItem("token") ? (
           <>
