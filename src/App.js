@@ -11,8 +11,6 @@ import Onboarding from './pages/Onboarding/Onboarding';
 import GoalForm from './components/GoalForm/GoalForm';
 import Expenses from './pages/Expenses/Expenses';
 
-import './App.scss';
-=======
 
 
 function App() {
