@@ -1,29 +1,27 @@
 import * as tokenService from '../utility/tokens.js'
 
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/incomes`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/goals/`
 
-export const createIncome = async (income) => {
+export const createGoal = async (goal) => {
   try {
-    console.log(income)
     const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(income)
+      body: JSON.stringify(goal)
     })
     const data = await res.json()
-    console.log(data)
     return data
   } catch (error) {
     throw error
   }
 }
 
-export const getIncomeById = async (incomeId) => {
+export const getGoalById = async (goalId) => {
   try {
-    const res = await fetch(`${BASE_URL}${incomeId}`,
+    const res = await fetch(`${BASE_URL}${goalId}`,
     {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
@@ -35,7 +33,7 @@ export const getIncomeById = async (incomeId) => {
   }
 }
 
-export const getAllIncomes = async () => {
+export const getAllGoals = async () => {
   try {
     const res = await fetch(`${BASE_URL}`,
     {
@@ -49,15 +47,15 @@ export const getAllIncomes = async () => {
   }
 }
 
-export const updateIncome = async (incomeId, income) => {
+export const updateGoal = async (goalId, goal) => {
   try {
-    const res = await fetch(`${BASE_URL}${incomeId}`, {
+    const res = await fetch(`${BASE_URL}${goalId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(income)
+      body: JSON.stringify(goal)
     })
     const data = await res.json()
     return data
@@ -66,9 +64,9 @@ export const updateIncome = async (incomeId, income) => {
   }
 }
 
-export const deleteIncome = async (incomeId) => {
+export const deleteGoal = async (goalId) => {
   try {
-    await fetch(`${BASE_URL}${incomeId}`, {
+    await fetch(`${BASE_URL}${goalId}`, {
       method: 'DELETE',
       headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
     })

@@ -1,6 +1,6 @@
 import * as tokenService from '../utility/tokens.js'
 
-const BASE_URL = '/api/expenses/'
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/expenses/`
 
 export const createExpense = async (expense) => {
   try {
