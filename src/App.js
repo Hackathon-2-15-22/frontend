@@ -7,7 +7,7 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
 import Expenses from './pages/Expenses/Expenses';
-import './App.css';
+import './App.scss';
 
 function App() {
 

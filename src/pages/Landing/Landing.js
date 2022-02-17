@@ -1,37 +1,39 @@
 import { Link } from 'react-router-dom';
-import styles from './Landing.module.css';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
+import landing1 from '../../images/landing1.svg'
+import landing2 from '../../images/landing2.svg'
+import landing3 from '../../images/landing3.svg'
 
 const Landing = props => {
 
   return (
-    <main className={styles.container}>
+    <main>
       <LandingNavbar/>
-      <div className={styles.landingIntro}>
-        <h1>Handle Your <br />Funds with Ease.</h1>
+      <div className="hero">
+        <h1 className='text-center'>Handle Your <br />Funds with ea<span className='cash'>$</span>e.</h1>
         <Link to="/signup">
-          <button className={styles.signupButton}>Sign up for free</button>
+          <button className="b1">Sign up for free</button>
         </Link>
       </div>
-      <div className={styles.landingPageInfo}>
-        <div className={styles.featureInfo}>
-          <img className={styles.featureImg} src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
-          <h2 className={styles.featureTitle}>Track</h2>
-          <p className={styles.featureDescription}>Keep track of your expenses using our built-in budgeting feature and see where you can adjust spending patterns.</p>
+      <div className="landing">
+        <div className="block">
+          <img src={landing1} />
+          <h2>Track</h2>
+          <p>Keep track of your expenses using our built-in budgeting feature and see where you can adjust spending patterns.</p>
         </div>
-        <div className={styles.featureInfo}>
-          <img className={styles.featureImg} src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
-          <h2 className={styles.featureTitle}>Set Goals</h2>
-          <p className={styles.featureDescription}>Whether you're working towards a new gaming system, a vacation, or paying off credit card debt, writing down your goals will help keep you motivated.</p>
+        <div className="block">
+          <img src={landing2} />
+          <h2>Set Goals</h2>
+          <p>Whether you're working towards a new gaming system, a vacation, or paying off credit card debt, writing down your goals will help keep you motivated.</p>
         </div>
-        <div className={styles.featureInfo}>
-          <img className={styles.featureImg} src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
-          <h2 className={styles.featureTitle}>Save</h2>
-          <p className={styles.featureDescription}>Nearly 40% of adults have less than $1,000 saved for financial emergencies. Create a safety net to prepare for unexpected expenses.</p>
+        <div className="block">
+          <img src={landing3} />
+          <h2>Save</h2>
+          <p>Nearly 40% of adults have less than $1,000 saved for financial emergencies. Create a safety net to prepare for unexpected expenses.</p>
         </div>
-        <div className={styles.featureButton}>
+        <div className="block">
           <Link to="/signup">
-            <button className={styles.signupButton}>Sign up for free</button>
+            <button className='b1'>Sign up for free</button>
           </Link>
         </div>
       </div>
