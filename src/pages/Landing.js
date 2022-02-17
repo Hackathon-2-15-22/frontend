@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
-import landing1 from '../../images/landing1.svg'
-import landing2 from '../../images/landing2.svg'
-import landing3 from '../../images/landing3.svg'
+import LandingNavbar from '../components/LandingNavbar';
+import landing1 from '../images/landing1.svg'
+import landing2 from '../images/landing2.svg'
+import landing3 from '../images/landing3.svg'
 
 const Landing = props => {
 
