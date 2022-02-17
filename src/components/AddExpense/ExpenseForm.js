@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { createExpense } from "../../utility/expenseService";
+import React, { useState, useEffect } from "react";
+import { createExpense, getAllExpenses, deleteExpense } from "../../utility/expenseService";
+import ExpenseCard from "./ExpenseList";
 
 const ExpenseForm = (props) => {
   const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState(0.0);
+  const [amount, setAmount] = useState(0);
+  const [expenses, setExpenses] = useState()
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
@@ -11,11 +13,28 @@ const ExpenseForm = (props) => {
       const newExpense = await createExpense({ category, amount });
       console.log("newExpense:", newExpense)
       setCategory("");
-      setAmount(0.0);
+      setAmount(0);
     } catch (error) {
       throw error;
     }
   };
+
+  const handleDeleteExpense = async (expenseId) => {
+    try {
+      await deleteExpense(expenseId)
+      setExpenses(expenses.filter((expense) => expense._id !== expenseId))
+    } catch (error) {
+      throw error
+    }
+  }
+
+  useEffect(() => {
+    const fetchAllExpenses = async () => {
+      const expenseData = await getAllExpenses()
+      setExpenses(expenseData)
+    }
+    fetchAllExpenses()
+  }, [])
 
   return (
     <>
@@ -74,7 +93,13 @@ const ExpenseForm = (props) => {
           </button>
         </div>
       </form>
-      {/* <button onClick={handleNext}>Next</button> */}
+      {expenses?.map((expense) => ( 
+        <ExpenseCard
+          expense={expense}
+          key={expense._id}
+          handleDeleteExpense={handleDeleteExpense}
+        />
+        ))}
     </>
   );
 };
