@@ -65,7 +65,7 @@ const Home = ({ user }) => {
       <h1>hello, {user ? user.name : 'friend'}</h1>
       <h1>Today is {t}</h1>
       <Goal />
-      <Income />
+      <Income userWealth={userWealth} />
       <Expense userFundsLeft={userFundsLeft} userWealth={userWealth} userExpenses={userExpenses}/>
       <Chart />
     </main>
