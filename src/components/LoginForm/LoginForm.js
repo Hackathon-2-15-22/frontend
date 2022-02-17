@@ -37,7 +37,7 @@ const LoginForm = (props) => {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           autoComplete="off"
           placeholder="your@email.here"
           id="email"
@@ -62,6 +62,10 @@ const LoginForm = (props) => {
       </div>
       <div>
         <button className={styles.signinButton}>Log In</button>
+        <button 
+          onClick={()=> navigate('/')}
+          className={styles.signinButton}>
+          Back</button>
       </div>
     </form>
   );
