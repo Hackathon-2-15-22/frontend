@@ -12,7 +12,6 @@ import GoalForm from './components/GoalForm/GoalForm';
 import Expenses from './pages/Expenses/Expenses';
 
 
-
 function App() {
 
   const [user, setUser] = useState(authService.getUser())
@@ -38,6 +37,7 @@ function App() {
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
             <Route path="/goal" element={<GoalForm user={user} />} />
+            <Route path="/expenses" element={<Expenses user={user} />} />
           </>
         ) : (
           <>
