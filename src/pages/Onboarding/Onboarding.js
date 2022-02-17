@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import useCollapse from 'react-collapsed';
 import IncomeForm from '../../components/IncomeForm/IncomeForm';
+import Expenses from '../Expenses/Expenses';
+import GoalForm from '../../components/GoalForm/GoalForm';
 
 
 ////////// Income
@@ -43,6 +45,7 @@ function CollapsibleExpenses(props) {
     function handleOnClick() {
         // Do more stuff with the click event!
         // Or, set isExpanded conditionally 
+        console.log("hello")
         setExpanded(!isExpanded);
         props.setActive({
             income: false,
@@ -59,7 +62,7 @@ return (
             </div>
             <div {...getCollapseProps()}>
                 <div className="content">
-                    <IncomeForm/>
+                    <Expenses toggleClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>
@@ -90,7 +93,7 @@ return (
             </div>
             <div {...getCollapseProps()}>
                 <div className="content">
-                    <IncomeForm/>
+                    <GoalForm toggleClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>
@@ -130,11 +133,14 @@ const Onboarding = (props) => {
 
 
     return (
-        <>
+        <div className='onboarding'>
+            <div className='title text-center'>
+                Set up your profile<br/>in 3 easy steps!
+            </div>
             <CollapsibleIncome user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleExpenses user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleGoals user={props.user} makeActive={makeActive} setActive={setActive}/>
-        </>
+        </div>
     )
 }
 

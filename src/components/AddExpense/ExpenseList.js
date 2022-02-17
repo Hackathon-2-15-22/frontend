@@ -4,7 +4,7 @@ const ExpenseList = ({ expense, handleDeleteExpense }) => {
 
   return (
     <>
-    <div className="expense-list">
+    <div className="expense-list column">
       <div className="row">
         <h3>{expense.category}</h3>
         <h3>{expense.amount}</h3>

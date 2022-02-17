@@ -21,7 +21,7 @@ export const createIncome = async (income) => {
 
 export const getIncomeById = async (incomeId) => {
   try {
-    const res = await fetch(`${BASE_URL}${incomeId}`,
+    const res = await fetch(`${BASE_URL}/${incomeId}`,
     {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
