@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createIncome } from "../../utility/incomeService";
+import { useState } from 'react';
+import { createIncome } from '../../utility/incomeService';
 
 let income = 0;
 let additionalIncome = 0;
@@ -26,6 +26,7 @@ const IncomeForm = (props) => {
     console.log("event", e);
     e.preventDefault();
     createIncome(formData);
+    props.handleOnClick()
   };
 
   return (

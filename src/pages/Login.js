@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import LoginForm from '../../components/LoginForm/LoginForm';
-import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
+import LoginForm from '../components/LoginForm';
+import welcome from '../images/welcome.svg';
 
 const LoginPage = (props) => {
   const [message, setMessage] = useState([""]);
@@ -11,9 +11,9 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <LandingNavbar/>
-      <main>
-        <h1 className="text-center">Log In</h1>
+      <main className='column'>
+        <h1 className='title'>Welcome to ea<span>$</span>e</h1>
+        <img src={welcome} alt="ease logo"/>
         <p>{message}</p>
         <LoginForm
           handleSignupOrLogin={props.handleSignupOrLogin}

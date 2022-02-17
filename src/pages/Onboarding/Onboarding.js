@@ -1,26 +1,62 @@
 import { useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
+import useCollapse from 'react-collapsed';
 import IncomeForm from '../../components/IncomeForm/IncomeForm';
 
-const Onboarding = props => {
-    // const [income, setIncome] = useState(0)
+function Collapsible1() {
+    const [ isExpanded, setExpanded ] = useState(false);
+    const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
-    // const handleChange = e => {
-    //     setIncome({...income, [e.target.name]: e.target.value})
-    // }
+    function handleOnClick() {
+        // Do more stuff with the click event!
+        // Or, set isExpanded conditionally 
+        setExpanded(!isExpanded);
+    }
 
     return (
-        <>
-        <Navbar/>
-        <div>
-            <div>
+        <div className="collapsible">
+            <div className="header" {...getToggleProps({onClick: handleOnClick})}>
+                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 1. Your Monthly Income
             </div>
-            <IncomeForm {...props}/>
-
+            <div {...getCollapseProps()}>
+                <div className="content">
+                    <IncomeForm handleOnClick={handleOnClick}/>
+                </div>
+            </div>
         </div>
+    );
+}
+
+function Collapsible2() {
+    const [ isExpanded, setExpanded ] = useState(false);
+    const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
+function handleOnClick() {
+        // Do more stuff with the click event!
+        // Or, set isExpanded conditionally 
+        setExpanded(!isExpanded);
+    }
+return (
+        <div className="collapsible">
+            <div className="header" {...getToggleProps({onClick: handleOnClick})}>
+                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
+                2. Your Monthly Expenses
+            </div>
+            <div {...getCollapseProps()}>
+                <div className="content">
+                    <IncomeForm/>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+const Onboarding = () => {
+    
+    return (
+        <>
+            <Collapsible1 />
+            <Collapsible2/>
         </>
-        
     )
 }
 
