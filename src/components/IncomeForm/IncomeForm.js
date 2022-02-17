@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { createIncome } from "../../utility/incomeService";
+import { useState } from 'react';
+import { createIncome } from '../../utility/incomeService';
 
 let income = 0;
 let additionalIncome = 0;
