@@ -6,12 +6,14 @@ import IncomeForm from '../../components/IncomeForm/IncomeForm';
 function Collapsible1() {
     const [ isExpanded, setExpanded ] = useState(false);
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
-function handleOnClick() {
+
+    function handleOnClick() {
         // Do more stuff with the click event!
         // Or, set isExpanded conditionally 
         setExpanded(!isExpanded);
     }
-return (
+
+    return (
         <div className="collapsible">
             <div className="header" {...getToggleProps({onClick: handleOnClick})}>
                 {/* {isExpanded ? 'Collapse' : 'Expand'} */}
@@ -19,7 +21,7 @@ return (
             </div>
             <div {...getCollapseProps()}>
                 <div className="content">
-                    <IncomeForm/>
+                    <IncomeForm handleOnClick={handleOnClick}/>
                 </div>
             </div>
         </div>

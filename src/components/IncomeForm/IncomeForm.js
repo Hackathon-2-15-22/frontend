@@ -26,6 +26,7 @@ const IncomeForm = (props) => {
     console.log("event", e);
     e.preventDefault();
     createIncome(formData);
+    props.handleOnClick()
   };
 
   return (

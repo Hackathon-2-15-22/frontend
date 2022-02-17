@@ -24,8 +24,8 @@ const SignupForm = (props) => {
     e.preventDefault();
     try {
       await authService.signup(formData);
+      navigate("/onboarding");
       props.handleSignupOrLogin();
-      navigate("/login");
     } catch (err) {
       props.updateMessage(err.message);
     }
@@ -63,7 +63,7 @@ const SignupForm = (props) => {
         </label>
         <input
           placeholder="your@email.com"
-          type="text"
+          type="email"
           autoComplete="off"
           id="email"
           value={email}
@@ -103,6 +103,11 @@ const SignupForm = (props) => {
         <button disabled={isFormInvalid()} className={styles.signupButton}>
           Sign Up
         </button>
+        <button 
+          onClick={()=> navigate('/')}
+          className={styles.signupButton}>
+          Back</button>
+          <p onClick={()=> navigate('/login')}>Already have an account? Login</p>
       </div>
     </form>
   );
