@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./SignupForm.module.css";
-import * as authService from "../../utility/auth";
+import * as authService from "../utility/auth";
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
@@ -41,12 +40,9 @@ const SignupForm = (props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="form"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>
-          Name
-        </label>
+      <div className="field">
         <input
           placeholder="name"
           type="text"
@@ -57,10 +53,7 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>
-          Email
-        </label>
+      <div className="field">
         <input
           placeholder="your@email.com"
           type="email"
@@ -71,10 +64,7 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Password
-        </label>
+      <div className="field">
         <input
           placeholder="password"
           type="password"
@@ -85,10 +75,7 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
-        </label>
+      <div className="field">
         <input
           placeholder="confirm password"
           type="password"
@@ -99,15 +86,15 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.signupButton}>
+      <div className="field">
+        <button disabled={isFormInvalid()} className="b1 submit">
           Sign Up
         </button>
-        <button 
-          onClick={()=> navigate('/')}
-          className={styles.signupButton}>
-          Back</button>
-          <p onClick={()=> navigate('/login')}>Already have an account? Login</p>
+        <p className="text-center">
+          <a className="linked" href="/login">
+            Already have an account? Login.
+          </a>
+        </p>
       </div>
     </form>
   );
