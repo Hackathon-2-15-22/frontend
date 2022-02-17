@@ -31,6 +31,7 @@ function App() {
           <>
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
+            <Route path="/expenses" element={<Expenses user={user} />} />
           </>
         ) : (
           <>

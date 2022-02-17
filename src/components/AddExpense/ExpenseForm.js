@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { createExpense } from "../../utility/expeneService"
+import { useNavigate } from "react-router-dom"
 
 const ExpenseForm = (props) => {
+  const navigate = useNavigate()
   const [expenseList, setExpenseList] = useState([
     { category: "", amount: "" },
   ]);
+
+  const handleAddExpense = async (e) => {
+    e.preventDefault()
+    try {
+      const newExpense = await createExpense(...expenseList)
+      console.log("newExpense:", newExpense)
+      navigate('/expenses')
+    } catch (error) {
+      throw error
+    }
+  }
 
   const handleExpenseChange = (e, index) => {
     const { name, value } = e.target;
@@ -103,6 +117,7 @@ const ExpenseForm = (props) => {
           ))}
         </div>
       </form>
+      <button onClick={handleAddExpense}>Next</button>
     </>
   );
 };
