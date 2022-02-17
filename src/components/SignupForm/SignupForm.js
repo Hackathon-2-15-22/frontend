@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./SignupForm.module.css";
 import * as authService from "../../utility/auth";
 
@@ -100,7 +100,7 @@ const SignupForm = (props) => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+        <button disabled={isFormInvalid()} className={styles.signupButton}>
           Sign Up
         </button>
       </div>

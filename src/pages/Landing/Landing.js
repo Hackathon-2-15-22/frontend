@@ -7,9 +7,9 @@ const Landing = props => {
     <main>
       <LandingNavbar/>
       <div className="hero">
-        <h1>Handle Your <br />Funds with Ease.</h1>
+        <h1 className='text-center'>Handle Your <br />Funds with ea<span className='cash'>$</span>e.</h1>
         <Link to="/signup">
-          <button className="center">Sign up for free</button>
+          <button className="b1 center">Sign up for free</button>
         </Link>
       </div>
       <div className="landing">

@@ -5,6 +5,7 @@
 $button: #FFB04B;
 $dark-blue: #3EC3D5;
 $light-blue: #C3EDF2;
+$cash: #41DC65;
 
 // Mixins
 @mixin column {
@@ -43,8 +44,17 @@ a {
 
 button {
     background-color: $button;
+    border-radius: 5px;
+    &.b1 {padding: 0.625rem 5rem;}
+    &.b2 {padding: 0.625rem ;}
 }
 
+img {height: 100px;}
+
+span {
+    color: $cash;
+    padding: 0px !important;
+}
 
 // Utility Styling
 .block {margin: 5vh auto;}
@@ -60,8 +70,6 @@ button {
     font-weight: 800;
 }
 
-.linked {}
-
 // Navbar
 .logo {
     margin: auto 0;
@@ -74,7 +82,7 @@ button {
     * {padding: 1vh;}
 }
 
-.nav-signup {
+.login {
     @include center;
     border: 1px;
     border-radius: 0.5em;

@@ -5,6 +5,8 @@ import Landing from './pages/Landing/Landing';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
+import Onboarding from './pages/Onboarding/Onboarding';
+import Expenses from './pages/Expenses/Expenses';
 import './App.scss';
 
 function App() {
@@ -25,16 +27,24 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
-        <Route
-          path="/signup"
-          element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route
-          path="/login"
-          element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
-        <Route path="/home" element={<Home user={user} />} />
+        {user && localStorage.getItem("token") ? (
+          <>
+            <Route path="/onboarding" element={<Onboarding user={user}/>} />
+            <Route path="/home" element={<Home user={user} />} />
+          </>
+        ) : (
+          <>
+            <Route path="*" element={<Landing user={user} />} />
+            <Route
+              path="/signup"
+              element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
+            />
+            <Route
+              path="/login"
+              element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+            />
+          </>
+        )}
       </Routes>
     </div>
   );
