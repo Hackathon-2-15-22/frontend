@@ -1,15 +1,14 @@
 import React from "react"
-import { ProgressBar, Button } from 'react-bootstrap'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const Goal = (props) => {
-  const percentage = 73
+  const percentage = 70
 
   return (
     <>
     <div className="goal">
       <h1>Goal</h1>
-      <ProgressBar now={percentage} label={`${percentage}% completed`}/>
+      <progress max={100} value={percentage}/>
       <button>Adjust Goals</button>
     </div>
     </>
