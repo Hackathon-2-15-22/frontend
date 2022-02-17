@@ -10,6 +10,7 @@ $button: #FFB04B;
 $dark-blue: #3EC3D5;
 $light-blue: #C3EDF2;
 $cash: #41DC65;
+$light-grey: #E7E7E7;
 
 /////////////////////////////////////////////
 // MIXINS
@@ -33,6 +34,12 @@ $cash: #41DC65;
     padding: auto;
 }
 .center {@include center}
+
+@mixin title {
+    font-size: 1.875rem;
+    font-weight: 800;
+}
+.title {@include title}
 
 @mixin heading {
     font-size: 1.5rem;
@@ -67,10 +74,9 @@ button {
     border-radius: 5px;
     border: 0px;
     &.b1 {padding: 0.625rem 3.25rem;}
-    &.b2 {padding: 0.625rem ;}
+    &.b2 {padding: 0.625rem;}
+    &.submit {width: 13.675rem;}
 }
-
-img {height: 4rem;}
 
 span {
     color: $cash;
@@ -82,23 +88,20 @@ span {
 /////////////////////////////////////////////
 .block {margin-top: 5vh; margin-bottom: 10vh;}
 .text-center {text-align: center;}
-
+.hide {display: none;}
 
 /////////////////////////////////////////////
 // NAVBAR
 /////////////////////////////////////////////
-.logo {
-    margin-left: 0.5rem;
-    font-size: 1.875rem;
-    font-weight: 800;
-}
+
 
 .nav {
     @include row;
     * {padding: 1vh;}
+    .logo {margin-left: 0.5rem;}
 }
 
-.login {
+.menu {
     @include center;
     border-radius: 0.5em;
     background-color: $button;
@@ -123,8 +126,11 @@ span {
     @include column;
     p {
         @include center;
+        @extend .text-center;
         width: 70vw;
-        text-align: center;}
+        max-width: 560px;
+    }
+    img {height: 4rem;}
 }
 
 
@@ -132,3 +138,18 @@ span {
 // SIGNUP PAGES
 /////////////////////////////////////////////
 
+.form {
+    @include column;
+    .field {
+        display: flex;
+        flex-flow: column;
+        margin-bottom: 3vh;
+        input {
+            background: $light-grey;
+            border: 0px;
+            border-radius: 5px;
+            padding: 2vh;
+            width: 12rem;
+        }
+    }
+}
