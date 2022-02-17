@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { createExpense, getAllExpenses, deleteExpense } from "../../utility/expenseService";
-import ExpenseCard from "./ExpenseList";
+import {
+  createExpense,
+  getAllExpenses,
+  deleteExpense,
+} from "../../utility/expenseService";
+import ExpenseList from "./ExpenseList";
 
 const ExpenseForm = (props) => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
-  const [expenses, setExpenses] = useState()
+  const [expenses, setExpenses] = useState();
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
     try {
       const newExpense = await createExpense({ category, amount });
-      console.log("newExpense:", newExpense)
+      console.log("newExpense:", newExpense);
       setCategory("");
       setAmount(0);
     } catch (error) {
@@ -21,23 +25,30 @@ const ExpenseForm = (props) => {
 
   const handleDeleteExpense = async (expenseId) => {
     try {
-      await deleteExpense(expenseId)
-      setExpenses(expenses.filter((expense) => expense._id !== expenseId))
+      await deleteExpense(expenseId);
+      setExpenses(expenses.filter((expense) => expense._id !== expenseId));
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
+  };
 
   useEffect(() => {
     const fetchAllExpenses = async () => {
-      const expenseData = await getAllExpenses()
-      setExpenses(expenseData)
-    }
-    fetchAllExpenses()
-  }, [expenses])
+      const expenseData = await getAllExpenses();
+      setExpenses(expenseData);
+    };
+    fetchAllExpenses();
+  }, [expenses]);
 
   return (
     <>
+      {expenses?.map((expense) => (
+        <ExpenseList
+          expense={expense}
+          key={expense._id}
+          handleDeleteExpense={handleDeleteExpense}
+        />
+      ))}
       <form className="expense-form" autoComplete="off">
         <div className="form-field">
           <label htmlFor="add-expense">Add Expenses</label>
@@ -87,19 +98,11 @@ const ExpenseForm = (props) => {
               required
             />
           </div>
-
           <button type="button" onClick={handleAddExpense} className="add-btn">
             <span>Add Expense</span>
           </button>
         </div>
       </form>
-      {expenses?.map((expense) => ( 
-        <ExpenseCard
-          expense={expense}
-          key={expense._id}
-          handleDeleteExpense={handleDeleteExpense}
-        />
-        ))}
     </>
   );
 };
