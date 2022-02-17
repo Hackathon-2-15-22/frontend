@@ -4,7 +4,6 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/incomes`
 
 export const createIncome = async (income) => {
   try {
-    console.log(income)
     const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
@@ -14,7 +13,6 @@ export const createIncome = async (income) => {
       body: JSON.stringify(income)
     })
     const data = await res.json()
-    console.log(data)
     return data
   } catch (error) {
     throw error
@@ -51,7 +49,7 @@ export const getAllIncomes = async () => {
 
 export const updateIncome = async (incomeId, income) => {
   try {
-    const res = await fetch(`${BASE_URL}${incomeId}`, {
+    const res = await fetch(`${BASE_URL}/${incomeId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

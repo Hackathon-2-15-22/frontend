@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createIncome } from '../../utility/incomeService';
+import { createIncome, updateIncome, getAllIncomes } from '../../utility/incomeService';
 
 let income = 0;
 let additionalIncome = 0;
@@ -22,10 +22,26 @@ const IncomeForm = (props) => {
     });
   };
 
+
+  // Function to see if user has income logged in db, if not it will create
+  const findIncome = async() => {
+      let result = await getAllIncomes()
+      let count = 0;
+        result.forEach((element, index) => {
+            if(props.user.profile === result[index].owner){
+                let incomeId = result[index]._id
+                updateIncome(incomeId, formData)
+                count++
+            } 
+        })
+        if (count === 0) {
+            createIncome(formData)
+        }
+  }
+
   const handleSubmit = (e) => {
-    console.log("event", e);
     e.preventDefault();
-    createIncome(formData);
+    findIncome()
     props.handleOnClick()
   };
 
