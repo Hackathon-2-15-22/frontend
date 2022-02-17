@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
 import GoalForm from './components/GoalForm/GoalForm';
 import Expenses from './pages/Expenses/Expenses';
+import AdjustIncome from './pages/AdjustIncome';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path="/home" element={<Home user={user} />} />
             <Route path="/goal" element={<GoalForm user={user} />} />
             <Route path="/expenses" element={<Expenses user={user} />} />
+            <Route path="/adjust/income" element={<AdjustIncome user={user}/>} />
           </>
         ) : (
           <>
