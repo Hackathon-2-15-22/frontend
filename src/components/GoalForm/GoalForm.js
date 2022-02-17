@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { createGoal } from "../../utility/goalService.js";
+import { useNavigate} from "react-router-dom";
 
 let goalName = "";
 let goalAmount = 0;
 
 const GoalForm = (props) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: "",
     amount: null,
@@ -28,6 +30,8 @@ const GoalForm = (props) => {
     console.log("event", e);
     e.preventDefault();
     createGoal(formData);
+    props.toggleClick();
+    navigate('/home')
   };
 
   return (
@@ -51,7 +55,7 @@ const GoalForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <button>Next</button>
+      <button onClick={()=> handleSubmit()}>Next</button>
     </form>
   );
 };

@@ -1,14 +1,14 @@
 import React from "react"
 import ExpenseForm from "../../components/AddExpense/ExpenseForm"
 
-const Expenses = () => {
+const Expenses = (props) => {
   
   return (
     <>
     <div className="expenses">
       <h1>Monthly Expenses</h1>
       <ExpenseForm />
-      <button>Next</button>
+      <button onClick={()=> props.toggleClick()}>Next</button>
     </div>
     </>
   )
