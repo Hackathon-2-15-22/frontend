@@ -29,12 +29,14 @@ function App() {
       <Routes>
         {user && localStorage.getItem("token") ? (
           <>
+            <Route path="*" element={<Navigate to="/home" replace/>} />
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
           </>
         ) : (
           <>
-            <Route path="*" element={<Landing user={user} />} />
+            <Route path="*" element={<Navigate to="/" replace/>} />
+            <Route path="/" element={<Landing user={user} />} />
             <Route
               path="/signup"
               element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}

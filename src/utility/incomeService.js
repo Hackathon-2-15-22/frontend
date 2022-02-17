@@ -4,6 +4,7 @@ const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/incomes`
 
 export const createIncome = async (income) => {
   try {
+    console.log(income)
     const res = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
