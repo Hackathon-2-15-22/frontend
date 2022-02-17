@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import LandingNavbar from '../../components/LandingNavbar/LandingNavbar';
+import landing1 from '../../images/landing1.svg'
+import landing2 from '../../images/landing2.svg'
+import landing3 from '../../images/landing3.svg'
 
 const Landing = props => {
 
@@ -14,23 +17,23 @@ const Landing = props => {
       </div>
       <div className="landing">
         <div className="block">
-          <img src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
+          <img src={landing1} />
           <h2>Track</h2>
           <p>Keep track of your expenses using our built-in budgeting feature and see where you can adjust spending patterns.</p>
         </div>
         <div className="block">
-          <img src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
+          <img src={landing2} />
           <h2>Set Goals</h2>
           <p>Whether you're working towards a new gaming system, a vacation, or paying off credit card debt, writing down your goals will help keep you motivated.</p>
         </div>
         <div className="block">
-          <img src="https://cdn.pixabay.com/photo/2017/09/07/08/54/money-2724241__480.jpg" />
+          <img src={landing3} />
           <h2>Save</h2>
           <p>Nearly 40% of adults have less than $1,000 saved for financial emergencies. Create a safety net to prepare for unexpected expenses.</p>
         </div>
         <div className="block">
           <Link to="/signup">
-            <button>Sign up for free</button>
+            <button className='b1'>Sign up for free</button>
           </Link>
         </div>
       </div>

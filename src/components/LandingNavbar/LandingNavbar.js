@@ -6,7 +6,7 @@ const LandingNavbar = () => {
             <div className="logo">ea<span>$</span>e</div>
             <div className="row">
                 <Link to="/login">
-                    <a className="login">Logo</a>
+                    <a className="login">Login</a>
                 </Link>
             </div>
         </div>

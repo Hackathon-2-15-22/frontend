@@ -28,6 +28,18 @@ $cash: #41DC65;
 }
 .center {@include center}
 
+@mixin heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+h1 {@include heading}
+
+@mixin sub-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+h2 {@include sub-heading()}
+
 // General Styling
 * {font-family: "Avenir LT Std", sans-serif;}
 
@@ -45,11 +57,12 @@ a {
 button {
     background-color: $button;
     border-radius: 5px;
-    &.b1 {padding: 0.625rem 5rem;}
+    border: 0px;
+    &.b1 {padding: 0.625rem 3.25rem;}
     &.b2 {padding: 0.625rem ;}
 }
 
-img {height: 100px;}
+img {height: 4rem;}
 
 span {
     color: $cash;
@@ -57,22 +70,13 @@ span {
 }
 
 // Utility Styling
-.block {margin: 5vh auto;}
+.block {margin-top: 5vh; margin-bottom: 10vh;}
 .text-center {text-align: center;}
 
-.heading {
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-.sub-heading {
-    font-size: 1.25rem;
-    font-weight: 800;
-}
 
 // Navbar
 .logo {
-    margin: auto 0;
+    margin-left: 0.5rem;
     font-size: 1.875rem;
     font-weight: 800;
 }
@@ -84,9 +88,10 @@ span {
 
 .login {
     @include center;
-    border: 1px;
     border-radius: 0.5em;
     background-color: $button;
+    margin-right: 0.5rem;
+    padding: 10px
 }
 
 // Landing Page
