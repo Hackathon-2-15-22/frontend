@@ -6,7 +6,9 @@ import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
+import GoalForm from './components/GoalForm/GoalForm';
 import Expenses from './pages/Expenses/Expenses';
+
 import './App.scss';
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
           <>
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
+            <Route path="/goal" element={<GoalForm user={user} />} />
           </>
         ) : (
           <>
