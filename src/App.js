@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
+import Expenses from './components/Home/Expense';
 
 function App() {
 
