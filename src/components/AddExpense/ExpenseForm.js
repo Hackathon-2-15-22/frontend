@@ -34,7 +34,7 @@ const ExpenseForm = (props) => {
       setExpenses(expenseData)
     }
     fetchAllExpenses()
-  }, [])
+  }, [expenses])
 
   return (
     <>
