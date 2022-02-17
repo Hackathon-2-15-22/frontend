@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
+import Expenses from './components/Home/Expense';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="*" element={<Navigate to="/home" replace/>} />
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
+            <Route path="/expenses" element={<Expenses user={user} />} />
           </>
         ) : (
           <>

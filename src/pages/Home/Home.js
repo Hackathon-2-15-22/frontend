@@ -4,7 +4,7 @@ import Income from '../../components/Home/Income';
 import Goal from '../../components/Home/Goal';
 import Expense from '../../components/Home/Expense';
 
-import { getAllExpenses } from "../../utility/expeneService";
+import { getAllExpenses } from "../../utility/expenseService";
 import { getAllIncomes } from "../../utility/incomeService";
 import { getUser } from "../../utility/auth";
 import { useState } from 'react';
