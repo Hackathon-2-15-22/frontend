@@ -1,6 +1,6 @@
 import React from "react"
 import { ProgressBar, Button } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Goal = () => {
   const percentage = 73
