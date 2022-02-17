@@ -84,6 +84,7 @@ button {
     &.b1 {padding: 0.625rem 3.25rem;}
     &.b2 {padding: 0.625rem;}
     &.submit {width: 13.675rem;}
+    &.minus {}
 }
 
 span {
@@ -188,6 +189,15 @@ form * {align-items: flex-start;}
         @include center;
         margin: 10vh auto;
         padding: 10px;
+    }
+}
+
+.expense-list {
+    button {
+        width: 10%;
+        margin: 0;
+        background-color: $dark-grey;
+        border-radius: 100px;
     }
 }
 

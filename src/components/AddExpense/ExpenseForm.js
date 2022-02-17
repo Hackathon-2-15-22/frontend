@@ -49,9 +49,9 @@ const ExpenseForm = (props) => {
           handleDeleteExpense={handleDeleteExpense}
         />
       ))}
-      <form className="expense-form" autoComplete="off">
-        <div className="form-field">
-          <label htmlFor="add-expense">Add Expenses</label>
+      <form className="column" autoComplete="off">
+        <div className="">
+          <label htmlFor="">Add Expenses</label>
           <div className="category-select">
             <select
               name="category"
