@@ -130,11 +130,14 @@ const Onboarding = (props) => {
 
 
     return (
-        <>
+        <div className='onboarding'>
+            <div className='title text-center'>
+                Set up your profile<br/>in 3 easy steps!
+            </div>
             <CollapsibleIncome user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleExpenses user={props.user} makeActive={makeActive} setActive={setActive}/>
             <CollapsibleGoals user={props.user} makeActive={makeActive} setActive={setActive}/>
-        </>
+        </div>
     )
 }
 
