@@ -69,7 +69,7 @@ button {
     border: 0px;
     &.b1 {padding: 0.625rem 3.25rem;}
     &.b2 {padding: 0.625rem;}
-    &.submit {width: 14.0325rem;}
+    &.submit {width: 13.675rem;}
 }
 
 span {
@@ -88,7 +88,6 @@ span {
 // NAVBAR
 /////////////////////////////////////////////
 .logo {
-    margin-left: 0.5rem;
     font-size: 1.875rem;
     font-weight: 800;
 }
@@ -96,6 +95,7 @@ span {
 .nav {
     @include row;
     * {padding: 1vh;}
+    .logo {margin-left: 0.5rem;}
 }
 
 .login {
@@ -135,11 +135,10 @@ span {
 
 .form {
     @include column;
-    // flex-wrap: nowrap;
     .field {
         display: flex;
         flex-flow: column;
-        margin-bottom: 5vh;
+        margin-bottom: 3vh;
         input {
             background: $light-grey;
             border: 0px;

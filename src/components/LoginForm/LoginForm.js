@@ -32,9 +32,6 @@ const LoginForm = (props) => {
       className="form"
     >
       <div className="field">
-        <label htmlFor="email" className="">
-          Email
-        </label>
         <input
           type="text"
           autoComplete="off"
@@ -46,9 +43,6 @@ const LoginForm = (props) => {
         />
       </div>
       <div className="field">
-        <label htmlFor="password" className="">
-          Password
-        </label>
         <input
           type="password"
           autoComplete="off"
@@ -60,7 +54,12 @@ const LoginForm = (props) => {
         />
       </div>
       <div>
-        <button className="b1 submit">Log In</button>
+        <button className="b1 submit">Login</button>
+        <p className="text-center">
+          <a className="linked" href="/signup">
+            Already have an account? Sign up.
+          </a>
+        </p>
       </div>
     </form>
   );

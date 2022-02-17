@@ -43,9 +43,6 @@ const SignupForm = (props) => {
       className="form"
     >
       <div className="field">
-        <label htmlFor="name">
-          Name
-        </label>
         <input
           placeholder="name"
           type="text"
@@ -57,9 +54,6 @@ const SignupForm = (props) => {
         />
       </div>
       <div className="field">
-        <label htmlFor="email">
-          Email
-        </label>
         <input
           placeholder="your@email.com"
           type="text"
@@ -71,9 +65,6 @@ const SignupForm = (props) => {
         />
       </div>
       <div className="field">
-        <label htmlFor="password">
-          Password
-        </label>
         <input
           placeholder="password"
           type="password"
@@ -85,9 +76,6 @@ const SignupForm = (props) => {
         />
       </div>
       <div className="field">
-        <label htmlFor="confirm">
-          Confirm Password
-        </label>
         <input
           placeholder="confirm password"
           type="password"
