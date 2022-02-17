@@ -23,8 +23,8 @@ const SignupForm = (props) => {
     e.preventDefault();
     try {
       await authService.signup(formData);
+      navigate("/onboarding");
       props.handleSignupOrLogin();
-      navigate("/login");
     } catch (err) {
       props.updateMessage(err.message);
     }
@@ -56,7 +56,7 @@ const SignupForm = (props) => {
       <div className="field">
         <input
           placeholder="your@email.com"
-          type="text"
+          type="email"
           autoComplete="off"
           id="email"
           value={email}

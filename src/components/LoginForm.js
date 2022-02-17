@@ -33,7 +33,7 @@ const LoginForm = (props) => {
     >
       <div className="field">
         <input
-          type="text"
+          type="email"
           autoComplete="off"
           placeholder="your@email.here"
           id="email"
