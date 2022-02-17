@@ -3,3 +3,17 @@
     align-items: center;
     flex-direction: column;
 }
+
+input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    width: 248px;
+    height: 39px;
+    left: 0px;
+    top: 23px;
+    background: #bcbcbc;
+    border-radius: 5px;
+}
