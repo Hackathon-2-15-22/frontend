@@ -35,6 +35,7 @@ function App() {
         {user && localStorage.getItem("token") ? (
           <>
             <Route path="*" element={<Navigate to="/home" replace/>} />
+            <Route path="/signup" element={<Navigate to="/onboarding" replace/>} />
             <Route path="/onboarding" element={<Onboarding user={user}/>} />
             <Route path="/home" element={<Home user={user} />} />
             <Route path="/goal" element={<GoalForm user={user} />} />
