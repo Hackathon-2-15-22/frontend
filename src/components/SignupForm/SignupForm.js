@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./SignupForm.module.css";
 import * as authService from "../../utility/auth";
 
 const SignupForm = (props) => {
@@ -41,10 +40,10 @@ const SignupForm = (props) => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="form"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>
+      <div className="field">
+        <label htmlFor="name">
           Name
         </label>
         <input
@@ -57,8 +56,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>
+      <div className="field">
+        <label htmlFor="email">
           Email
         </label>
         <input
@@ -71,8 +70,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
+      <div className="field">
+        <label htmlFor="password">
           Password
         </label>
         <input
@@ -85,8 +84,8 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
+      <div className="field">
+        <label htmlFor="confirm">
           Confirm Password
         </label>
         <input
@@ -99,10 +98,15 @@ const SignupForm = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.signupButton}>
+      <div className="field">
+        <button disabled={isFormInvalid()} className="b1 submit">
           Sign Up
         </button>
+        <p className="text-center">
+          <a className="linked" href="/login">
+            Already have an account? Login.
+          </a>
+        </p>
       </div>
     </form>
   );

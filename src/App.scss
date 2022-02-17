@@ -10,6 +10,7 @@ $button: #FFB04B;
 $dark-blue: #3EC3D5;
 $light-blue: #C3EDF2;
 $cash: #41DC65;
+$light-grey: #E7E7E7;
 
 /////////////////////////////////////////////
 // MIXINS
@@ -67,10 +68,9 @@ button {
     border-radius: 5px;
     border: 0px;
     &.b1 {padding: 0.625rem 3.25rem;}
-    &.b2 {padding: 0.625rem ;}
+    &.b2 {padding: 0.625rem;}
+    &.submit {width: 14.0325rem;}
 }
-
-img {height: 4rem;}
 
 span {
     color: $cash;
@@ -82,7 +82,7 @@ span {
 /////////////////////////////////////////////
 .block {margin-top: 5vh; margin-bottom: 10vh;}
 .text-center {text-align: center;}
-
+.hide {display: none;}
 
 /////////////////////////////////////////////
 // NAVBAR
@@ -125,6 +125,7 @@ span {
         @include center;
         width: 70vw;
         text-align: center;}
+    img {height: 4rem;}
 }
 
 
@@ -132,3 +133,19 @@ span {
 // SIGNUP PAGES
 /////////////////////////////////////////////
 
+.form {
+    @include column;
+    // flex-wrap: nowrap;
+    .field {
+        display: flex;
+        flex-flow: column;
+        margin-bottom: 5vh;
+        input {
+            background: $light-grey;
+            border: 0px;
+            border-radius: 5px;
+            padding: 2vh;
+            width: 12rem;
+        }
+    }
+}
