@@ -1,8 +1,8 @@
 import * as tokenService from '../utility/tokens.js'
 
-const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/expenses/`
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/incomes`
 
-export const createExpense = async (expense) => {
+export const createIncome = async (income) => {
   try {
     const res = await fetch(BASE_URL, {
       method: 'POST',
@@ -10,18 +10,19 @@ export const createExpense = async (expense) => {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(expense)
+      body: JSON.stringify(income)
     })
     const data = await res.json()
+    console.log(data)
     return data
   } catch (error) {
     throw error
   }
 }
 
-export const getExpenseById = async (expenseId) => {
+export const getIncomeById = async (incomeId) => {
   try {
-    const res = await fetch(`${BASE_URL}${expenseId}`,
+    const res = await fetch(`${BASE_URL}${incomeId}`,
     {
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`
@@ -33,7 +34,7 @@ export const getExpenseById = async (expenseId) => {
   }
 }
 
-export const getAllExpenses = async () => {
+export const getAllIncomes = async () => {
   try {
     const res = await fetch(`${BASE_URL}`,
     {
@@ -47,15 +48,15 @@ export const getAllExpenses = async () => {
   }
 }
 
-export const updateExpense = async (expenseId, expense) => {
+export const updateIncome = async (incomeId, income) => {
   try {
-    const res = await fetch(`${BASE_URL}${expenseId}`, {
+    const res = await fetch(`${BASE_URL}${incomeId}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${tokenService.getToken()}`
       },
-      body: JSON.stringify(expense)
+      body: JSON.stringify(income)
     })
     const data = await res.json()
     return data
@@ -64,9 +65,9 @@ export const updateExpense = async (expenseId, expense) => {
   }
 }
 
-export const deleteExpense = async (expenseId) => {
+export const deleteIncome = async (incomeId) => {
   try {
-    await fetch(`${BASE_URL}${expenseId}`, {
+    await fetch(`${BASE_URL}${incomeId}`, {
       method: 'DELETE',
       headers: { 'Authorization': 'Bearer ' + tokenService.getToken() }
     })
