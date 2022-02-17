@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Onboarding from './pages/Onboarding/Onboarding';
 import Expenses from './pages/Expenses/Expenses';
 import './App.scss';
+import LandingNavbar from './components/LandingNavbar';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div>
+      <LandingNavbar/>
       <Routes>
         {user && localStorage.getItem("token") ? (
           <>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import SignupForm from '../components/SignupForm';
-import LandingNavbar from '../components/LandingNavbar';
 import welcome from '../images/welcome.svg';
 
 const Signup = (props) => {
@@ -12,7 +11,6 @@ const Signup = (props) => {
 
   return (
     <>
-      <LandingNavbar/>
       <main class="column">
         <h1 className='logo'>Welcome to ea<span>$</span>e</h1>
         <img src={welcome} alt="ease logo"/>

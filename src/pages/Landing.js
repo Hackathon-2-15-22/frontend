@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import LandingNavbar from '../components/LandingNavbar';
 import landing1 from '../images/landing1.svg'
 import landing2 from '../images/landing2.svg'
 import landing3 from '../images/landing3.svg'
@@ -8,7 +7,6 @@ const Landing = props => {
 
   return (
     <main>
-      <LandingNavbar/>
       <div className="hero">
         <h1 className='text-center'>Handle Your <br />Funds with ea<span className='cash'>$</span>e.</h1>
         <Link to="/signup">
