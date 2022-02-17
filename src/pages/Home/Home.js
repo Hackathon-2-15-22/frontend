@@ -1,4 +1,3 @@
-import styles from './Home.module.css';
 import Chart from '../../components/Home/Chart';
 import Income from '../../components/Home/Income';
 import Goal from '../../components/Home/Goal';

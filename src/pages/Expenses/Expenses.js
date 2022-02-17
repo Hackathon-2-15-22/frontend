@@ -5,8 +5,7 @@ const Expenses = (props) => {
   
   return (
     <>
-    <div className="expenses">
-      <h1>Monthly Expenses</h1>
+    <div className="">
       <ExpenseForm />
       <button onClick={()=> props.toggleClick()}>Next</button>
     </div>
