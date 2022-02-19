@@ -23,11 +23,11 @@ const SignupForm = (props) => {
     e.preventDefault();
     try {
       await authService.signup(formData);
-      navigate("/onboarding");
       props.handleSignupOrLogin();
     } catch (err) {
       props.updateMessage(err.message);
     }
+    navigate("/onboarding");
   };
 
   const { name, email, password, passwordConf } = formData;
