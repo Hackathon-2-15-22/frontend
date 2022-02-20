@@ -1,0 +1,26 @@
+const categories = [
+  { category: "Choose a category", color: "" },
+  { category: "Housing", color: "#FEAED5" },
+  { category: "Transportation", color: "#9A76C9" },
+  { category: "Travel", color: "#FEC97F" },
+  { category: "Groceries", color: "#6893DE" },
+  { category: "Dining Out", color: "#9FCAE9" },
+  { category: "Utilities", color: "#EAE7E1" },
+  { category: "Cell Phone", color: "#E6C3BF" },
+  { category: "Pet Food and Care", color: "#E4D9C0" },
+  { category: "Pet Insurance", color: "#A4CDC4" },
+  { category: "Clothing and Personal Upkeep", color: "#D7D7D7" },
+  { category: "Health Insurance", color: "#A9B8C8" },
+  { category: "Memberships and Subscriptions", color: "#B5EAF0" },
+  { category: "Life Insurance", color: "#FEFFDB" },
+  { category: "Homeowners Insurance", color: "#FDE976" },
+  { category: "Entertainment", color: "#E5A948" },
+  { category: "Student Loans", color: "#812B04" },
+  { category: "Credit Card Debt", color: "#AE8148" },
+  { category: "Retirement", color: "#F7006F" },
+  { category: "Emergency Fund", color: "#480B77" },
+  { category: "Large Purchases", color: "#035CF9" },
+  { category: "Goals", color: "#B2186C" },
+];
+
+export default categories;

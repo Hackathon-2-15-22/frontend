@@ -1,19 +1,19 @@
-import React from "react"
+import React from "react";
 
 const ExpenseList = ({ expense, handleDeleteExpense }) => {
-
   return (
     <>
-    <div className="expense-list column">
-      <div className="row">
-        <h3>{expense.category}</h3>
-        <h3>{expense.amount}</h3>
-        <button onClick={() => handleDeleteExpense(expense._id)}
-        >-</button>
+      <div className="expense-list column">
+        <div className="row">
+          <input
+            TYPE="text"
+            value={expense.category + "   " + expense.amount}
+          ></input>
+          <button onClick={() => handleDeleteExpense(expense._id)}>-</button>
+        </div>
       </div>
-    </div>
     </>
-  )
-}
+  );
+};
 
-export default ExpenseList
+export default ExpenseList;

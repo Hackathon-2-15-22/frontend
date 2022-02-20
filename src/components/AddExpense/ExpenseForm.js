@@ -6,6 +6,10 @@ import {
 } from "../../utility/expenseService";
 import ExpenseList from "./ExpenseList";
 
+//assests
+import categories from "../../data/catagoryData";
+import { getUser } from "../../utility/auth";
+
 const ExpenseForm = (props) => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
@@ -34,7 +38,9 @@ const ExpenseForm = (props) => {
 
   useEffect(() => {
     const fetchAllExpenses = async () => {
-      const expenseData = await getAllExpenses();
+      let expenseData = await getAllExpenses();
+      const userId = await getUser();
+      expenseData = expenseData.filter((exp) => exp.owner === userId.profile);
       setExpenses(expenseData);
     };
     fetchAllExpenses();
@@ -59,32 +65,9 @@ const ExpenseForm = (props) => {
               onChange={(e) => setCategory(e.target.value)}
               value={category}
             >
-              <option value="">--Choose a Category--</option>
-              <option value="Housing">Housing</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Travel">Travel</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Dining Out">Dining Out</option>
-              <option value="Utilities">Utilities</option>
-              <option value="Cell Phone">Cell Phone</option>
-              <option value="Pet Food and Care">Pet Food and Care</option>
-              <option value="Pet Insurance">Pet Insurance</option>
-              <option value="Clothing and Personal Upkeep">
-                Clothing and Personal Upkeep
-              </option>
-              <option value="Health Insurance">Health Insurance</option>
-              <option value="Memberships and Subscriptions">
-                Memberships and Subscriptions
-              </option>
-              <option value="Life Insurance">Life Insurance</option>
-              <option value="Homeowners Insurance">Homeowners Insurance</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Student Loans">Student Loans</option>
-              <option value="Credit Card Debt">Credit Card Debt</option>
-              <option value="Retirement">Retirement</option>
-              <option value="Emergency Fund">Emergency Fund</option>
-              <option value="Large Purchases">Large Purchases</option>
-              <option value="Goals">Goals</option>
+              {categories.map((element) => (
+                <option value={element.category}>{element.category}</option>
+              ))}
             </select>
           </div>
           <div className="expense-input">
