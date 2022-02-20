@@ -6,8 +6,7 @@ const ExpenseList = ({ expense, handleDeleteExpense }) => {
     <>
     <div className="expense-list column">
       <div className="row">
-        <h3>{expense.category}</h3>
-        <h3>{expense.amount}</h3>
+       <input  TYPE="text" value={expense.category + "   " + expense.amount}></input>
         <button onClick={() => handleDeleteExpense(expense._id)}
         >-</button>
       </div>
