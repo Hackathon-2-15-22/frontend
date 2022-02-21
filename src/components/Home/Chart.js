@@ -8,8 +8,7 @@ import { getAllExpenses } from "../../utility/expenseService";
 
 const Chart = (props) => {
   let expenseTotal = 0;
-  let calculatedData= []
-
+  let calculatedData = [];
 
   const [allUserExpenseData, setAllUserExpenseData] = useState();
 
@@ -25,31 +24,47 @@ const Chart = (props) => {
     }
   };
 
+  const defaultLabelStyle = {
+    fontSize: "4px",
+    fontFamily: "sans-serif",
+  };
+
   for (let ele in allUserExpenseData) {
     expenseTotal += allUserExpenseData[ele].amount;
   }
 
-  // const calculateData = 
+  // const calculateData =
   //   allUserExpenseData.map(ele =>{
   //       value = (ele.amount/expenseTotal)*100
   //       color = categories[ele.category]
   // })
 
-  for (let i in allUserExpenseData){
-    let col = categories.find(cat => cat.category===allUserExpenseData[i].category )
-    calculatedData[i]={
-      value: Math.floor((allUserExpenseData[i].amount/expenseTotal)*100), 
-      color: col.color
-  }
+  for (let i in allUserExpenseData) {
+    let col = categories.find(
+      (cat) => cat.category === allUserExpenseData[i].category
+    );
+    calculatedData[i] = {
+      title: allUserExpenseData[i].category,
+      value: Math.floor((allUserExpenseData[i].amount / expenseTotal) * 100),
+      color: col.color,
+    };
   }
 
   useEffect(() => {
     getAllUsersExpenses();
   }, []);
 
+  const expensesList = calculatedData.map((expenseData) => (
+        <tr>
+          <td style={{ background: expenseData.color }}>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+          <td>{expenseData.title}</td>
+        </tr>
+  ));
+
   return (
     <>
-   
       <div className="chart">
         <h1>Your Spendings</h1>
         <PieChart
@@ -57,15 +72,20 @@ const Chart = (props) => {
           animationDuration={1000}
           onMouseOver
           data={calculatedData}
-          label={({ dataEntry }) => dataEntry.title}
-          // label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
-          />
-        <h3>Category</h3>
-        <h3>Category</h3>
-        <h3>Category</h3>
+          // label={({ dataEntry }) => dataEntry.title}
+          label={({ dataEntry }) => Math.round(dataEntry.percentage) + "%"}
+          labelStyle={defaultLabelStyle}
+          labelPosition={85}
+        />
+<table style={{width:500, textAlign:"left"}}>
+  <tr>
+    <th>Color</th>
+    <th>Category</th>
+  </tr>
+        {expensesList}
+</table>
       </div>
-
-      </>
+    </>
   );
 };
 
