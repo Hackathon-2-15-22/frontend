@@ -36,6 +36,18 @@ const ExpenseForm = (props) => {
     }
   };
 
+  const handleRounding = (n) => {
+    if (String(n).indexOf('.') > -1) {
+      const dollars = String(n).split('.')[0]
+      let cents = String(n).split('.')[1]
+      console.log(cents)
+      if (cents.length < 2) {cents = cents.padEnd(2, '0')} 
+      else if (cents.length > 2) {cents = cents.slice(0,2)}
+      n = parseFloat(dollars+'.'+cents)
+    }
+    return n
+  }
+
   useEffect(() => {
     const fetchAllExpenses = async () => {
       let expenseData = await getAllExpenses();
@@ -53,6 +65,7 @@ const ExpenseForm = (props) => {
           expense={expense}
           key={expense._id}
           handleDeleteExpense={handleDeleteExpense}
+          handleRounding={handleRounding}
         />
       ))}
       <form className="column" autoComplete="off">
@@ -73,9 +86,9 @@ const ExpenseForm = (props) => {
           <div className="expense-input">
             <input
               name="amount"
-              type="number"
+              type="decimal"
               id="amount"
-              placeholder="$0.00"
+              placeholder="$ 0.00"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               required
