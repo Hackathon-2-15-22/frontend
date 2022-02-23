@@ -77,6 +77,7 @@ const Chart = (props) => {
           labelStyle={defaultLabelStyle}
           labelPosition={85}
         />
+        <script>{console.log(calculatedData)}</script>
 <table style={{width:500, textAlign:"left"}}>
   <tr>
     <th>Color</th>

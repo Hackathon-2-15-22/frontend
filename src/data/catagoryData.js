@@ -1,5 +1,5 @@
 const categories = [
-  { category: "Choose a category", color: "" },
+  { category: "Choose category", color: "" },
   { category: "Housing", color: "#FEAED5" },
   { category: "Transportation", color: "#9A76C9" },
   { category: "Travel", color: "#FEC97F" },

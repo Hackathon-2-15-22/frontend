@@ -65,14 +65,14 @@ const Home = ({ user }) => {
         <Goal />
       </div>
       <div class="box">
-        <Income userWealth={userWealth} />
-      </div>
-      <div class="box">
         <Expense
           userFundsLeft={userFundsLeft}
           userWealth={userWealth}
           userExpenses={userExpenses}
         />
+      </div>
+      <div class="box">
+        <Income userWealth={userWealth} />
       </div>
       <div class="box">
         <Chart />
