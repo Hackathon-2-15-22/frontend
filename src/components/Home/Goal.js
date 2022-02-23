@@ -51,6 +51,7 @@ const Goal = (props) => {
     <>
       <div className="goal">
         <h1>Goal</h1>
+        <h2>${userSavedForGoal} out of ${userGoalTotal}</h2>
         <progress max={100} value={percentage} />
         <button>Adjust Goals</button>
       </div>
