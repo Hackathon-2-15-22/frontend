@@ -62,6 +62,12 @@ h2 {@include sub-heading()}
     margin: 0 auto;
 }
 
+@mixin plus($color) {
+    padding: 50px;
+}
+.grey-plus {@include plus($darker-grey)}
+.blue-plus {@include plus($light-blue)}
+
 /////////////////////////////////////////////
 // UNIVERSAL STYLING
 /////////////////////////////////////////////
@@ -85,6 +91,20 @@ button {
     &.b1 {padding: 0.625rem 3.25rem;}
     &.b2 {padding: 0.625rem;}
     &.submit {width: 13.675rem;}
+    &.minus {
+        width: 1vh;
+        margin: auto 3vw !important;
+        background-color: $darker-grey;
+        border-radius: 100px;
+        line-height: 1px;
+    }
+    &.grey-plus {
+        @extend .minus;
+        padding: 25px !important;
+        font-size: 1.5625rem;
+        align-self: center;
+        margin-top: 5vh !important;
+    }
 }
 
 span {
@@ -169,7 +189,6 @@ span {
 form * {align-items: flex-start;}
 
 .onboarding {
-    // * { @include center; }
     .header {
         background-color: $dark-grey;
         padding: 10px;
@@ -197,13 +216,6 @@ form * {align-items: flex-start;}
     @include onboarding;
     width: 95%;
     align-items: flex-start;
-    button {
-        width: 1vh;
-        margin: auto 3vw;
-        background-color: $darker-grey;
-        border-radius: 100px;
-        line-height: 1px;
-    }
     .expense-top {margin-top: 4vh;}
     .expense-category {
         background: $dark-blue;
@@ -212,6 +224,18 @@ form * {align-items: flex-start;}
         margin: 0;
         width: 45vw;
         max-width: 280px;
+        &-form {
+            @extend .expense-category;
+            margin-top: 4vh;
+            select {
+                border: none;
+                width: inherit;
+                max-width: inherit;
+                background-color: inherit;
+                font-family: inherit;
+                font-size: inherit;
+            }
+        }
     }
     .expense-amount {
         background: $light-grey;

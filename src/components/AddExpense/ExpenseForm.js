@@ -28,7 +28,7 @@ const ExpenseForm = (props) => {
   };
 
   const handleDeleteExpense = async (e, expenseId, onboarding=false) => {
-    if (onboarding=true) {e.preventDefault()}
+    if (onboarding===true) {e.preventDefault()}
     try {
       await deleteExpense(expenseId);
       setExpenses(expenses.filter((expense) => expense._id !== expenseId));
@@ -61,8 +61,7 @@ const ExpenseForm = (props) => {
 
   return (
     <>
-      <form className="column" autoComplete="off">
-        {expenses?.map((expense) => (
+    {expenses?.map((expense) => (
           <ExpenseList
             expense={expense}
             key={expense._id}
@@ -70,9 +69,11 @@ const ExpenseForm = (props) => {
             handleRounding={handleRounding}
           />
         ))}
-        <div className="">
-          <label htmlFor="">Add Expenses</label>
-          <div className="category-select">
+      <form className="column" autoComplete="off">
+
+        <div className="expense-list">
+          {/* <label htmlFor="">Add Expenses</label> */}
+          <div className="expense-category-form">
             <select
               name="category"
               required
@@ -88,15 +89,16 @@ const ExpenseForm = (props) => {
             <input
               name="amount"
               type="decimal"
+              className="expense-amount"
               id="amount"
               placeholder="$ 0.00"
-              value={amount}
+              value={amount===0? null : amount}
               onChange={(e) => setAmount(e.target.value)}
               required
             />
           </div>
-          <button type="button" onClick={handleAddExpense} className="">+</button>
         </div>
+        <button type="button" onClick={handleAddExpense} className="grey-plus">+</button>
       </form>
     </>
   );
