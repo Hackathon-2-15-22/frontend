@@ -7,7 +7,7 @@ const ExpenseList = ({ expense, handleDeleteExpense }) => {
       <div className="expense-list">
         <div className="expense-top row">
           <div className="expense-category">{expense.category}</div>
-          <button onClick={() => handleDeleteExpense(expense._id)}
+          <button onClick={(e, onboarding) => handleDeleteExpense(e, expense._id, onboarding=true)}
             className="minus"
           >—</button>
         </div>

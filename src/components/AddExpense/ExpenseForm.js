@@ -27,7 +27,8 @@ const ExpenseForm = (props) => {
     }
   };
 
-  const handleDeleteExpense = async (expenseId) => {
+  const handleDeleteExpense = async (e, expenseId, onboarding=false) => {
+    if (onboarding=true) {e.preventDefault()}
     try {
       await deleteExpense(expenseId);
       setExpenses(expenses.filter((expense) => expense._id !== expenseId));
@@ -60,15 +61,15 @@ const ExpenseForm = (props) => {
 
   return (
     <>
-      {expenses?.map((expense) => (
-        <ExpenseList
-          expense={expense}
-          key={expense._id}
-          handleDeleteExpense={handleDeleteExpense}
-          handleRounding={handleRounding}
-        />
-      ))}
       <form className="column" autoComplete="off">
+        {expenses?.map((expense) => (
+          <ExpenseList
+            expense={expense}
+            key={expense._id}
+            handleDeleteExpense={handleDeleteExpense}
+            handleRounding={handleRounding}
+          />
+        ))}
         <div className="">
           <label htmlFor="">Add Expenses</label>
           <div className="category-select">
@@ -94,9 +95,7 @@ const ExpenseForm = (props) => {
               required
             />
           </div>
-          <button type="button" onClick={handleAddExpense} className="add-btn">
-            <span>Add Expense</span>
-          </button>
+          <button type="button" onClick={handleAddExpense} className="">+</button>
         </div>
       </form>
     </>
