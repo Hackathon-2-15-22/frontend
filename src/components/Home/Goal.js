@@ -42,17 +42,34 @@ const Goal = (props) => {
     }
   };
 
+  
   calculateSavedTowardGoal();
   calculateGoalTotal();
-
+  
   let percentage = (userSavedForGoal / userGoalTotal) * 100;
-
+  
+  const goalMessage = () => {
+    if (percentage <= 25) {
+      return "This is a good start!"
+    } else if (percentage > 25 && percentage <= 50) {
+      return "You're almost halfway there!"
+    } else if (percentage > 50 && percentage <=75 ) {
+      return "You're more than halfwayt there!"
+    } else if (percentage > 75 && percentage < 100) {
+      return "You're almost there!"
+    } else if (percentage>= 100) {
+      return "Congrats! You have reached your goal!"
+    }
+  
+  }
   return (
     <>
       <div className="goal">
         <h1>Goal</h1>
+        <h2>${userSavedForGoal} out of ${userGoalTotal}</h2>
         <progress max={100} value={percentage} />
         <button>Adjust Goals</button>
+        <h2>{goalMessage()}</h2>
       </div>
     </>
   );
