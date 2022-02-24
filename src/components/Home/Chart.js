@@ -47,6 +47,7 @@ const Chart = (props) => {
       title: allUserExpenseData[i].category,
       value: Math.floor((allUserExpenseData[i].amount / expenseTotal) * 100),
       color: col.color,
+      amount: allUserExpenseData[i].amount
     };
   }
 
@@ -56,10 +57,12 @@ const Chart = (props) => {
 
   const expensesList = calculatedData.map((expenseData) => (
         <tr>
-          <td style={{ background: expenseData.color }}>
+          <td className="color"
+            style={{ background: expenseData.color }}>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </td>
-          <td>{expenseData.title}</td>
+          <td className="category">{expenseData.title}</td>
+          <td className="amount">{`$${expenseData.amount}`}</td>
         </tr>
   ));
 
@@ -72,19 +75,12 @@ const Chart = (props) => {
           animationDuration={1000}
           onMouseOver
           data={calculatedData}
-          // label={({ dataEntry }) => dataEntry.title}
           label={({ dataEntry }) => Math.round(dataEntry.percentage) + "%"}
           labelStyle={defaultLabelStyle}
           labelPosition={85}
         />
         <script>{console.log(calculatedData)}</script>
-<table style={{width:500, textAlign:"left"}}>
-  <tr>
-    <th>Color</th>
-    <th>Category</th>
-  </tr>
-        {expensesList}
-</table>
+        <table>{expensesList}</table>
       </div>
     </>
   );
