@@ -9,15 +9,23 @@ import { getAllExpenses } from "../../utility/expenseService";
 const Chart = (props) => {
   let expenseTotal = 0;
   let calculatedData = [];
+  let counter = 0;
 
   const [allUserExpenseData, setAllUserExpenseData] = useState();
+  const [mergedExpenseData, setMergedExpenseData] = useState();
 
   const getAllUsersExpenses = async () => {
     try {
       let allExpenses = await getAllExpenses();
       const userId = await getUser();
       allExpenses = allExpenses.filter((exp) => exp.owner === userId.profile);
-      console.log(allExpenses);
+
+      let merge = allExpenses.reduce((expense, item) => {
+        expense[item.category] = (expense[item.category] || 0) + item.amount;
+        return expense;
+      }, {});
+
+      setMergedExpenseData(merge);
       setAllUserExpenseData(allExpenses);
     } catch (error) {
       throw error;
@@ -33,21 +41,15 @@ const Chart = (props) => {
     expenseTotal += allUserExpenseData[ele].amount;
   }
 
-  // const calculateData =
-  //   allUserExpenseData.map(ele =>{
-  //       value = (ele.amount/expenseTotal)*100
-  //       color = categories[ele.category]
-  // })
-
-  for (let i in allUserExpenseData) {
-    let col = categories.find(
-      (cat) => cat.category === allUserExpenseData[i].category
-    );
-    calculatedData[i] = {
-      title: allUserExpenseData[i].category,
-      value: Math.floor((allUserExpenseData[i].amount / expenseTotal) * 100),
+  for (let i in mergedExpenseData) {
+    let col = categories.find((cat) => cat.category === i);
+    calculatedData[counter] = {
+      id: 1 + mergedExpenseData[i],
+      title: i,
+      value: Math.floor((mergedExpenseData[i] / expenseTotal) * 100),
       color: col.color,
     };
+    counter += 1;
   }
 
   useEffect(() => {
@@ -55,36 +57,39 @@ const Chart = (props) => {
   }, []);
 
   const expensesList = calculatedData.map((expenseData) => (
-        <tr>
-          <td style={{ background: expenseData.color }}>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          </td>
-          <td>{expenseData.title}</td>
-        </tr>
+    <tr key={expenseData.id}>
+      <td style={{ background: expenseData.color }}>
+      &emsp;
+      </td>
+      <td>{expenseData.title}&emsp;${mergedExpenseData[expenseData.title]}</td>
+    </tr>
   ));
 
   return (
     <>
-      <div className="chart">
+      <div id="chart1" className="chart">
         <h1>Your Spendings</h1>
         <PieChart
           animate
           animationDuration={1000}
           onMouseOver
           data={calculatedData}
-          // label={({ dataEntry }) => dataEntry.title}
           label={({ dataEntry }) => Math.round(dataEntry.percentage) + "%"}
           labelStyle={defaultLabelStyle}
           labelPosition={85}
         />
-        <script>{console.log(calculatedData)}</script>
-<table style={{width:500, textAlign:"left"}}>
-  <tr>
-    <th>Color</th>
-    <th>Category</th>
-  </tr>
-        {expensesList}
-</table>
+
+
+        <table>
+          <thead>
+            <tr key="4235353">
+              <th>Color</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>{expensesList}</tbody>
+        </table>
+
       </div>
     </>
   );
