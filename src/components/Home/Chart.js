@@ -42,7 +42,6 @@ const Chart = (props) => {
   }
 
   for (let i in mergedExpenseData) {
-    
     let col = categories.find((cat) => cat.category === i);
     calculatedData[counter] = {
       id: 1 + mergedExpenseData[i],
@@ -60,9 +59,9 @@ const Chart = (props) => {
   const expensesList = calculatedData.map((expenseData) => (
     <tr key={expenseData.id}>
       <td style={{ background: expenseData.color }}>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &emsp;
       </td>
-      <td>{expenseData.title}</td>
+      <td>{expenseData.title}&emsp;${mergedExpenseData[expenseData.title]}</td>
     </tr>
   ));
 
