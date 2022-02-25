@@ -45,7 +45,6 @@ function CollapsibleExpenses(props) {
     function handleOnClick() {
         // Do more stuff with the click event!
         // Or, set isExpanded conditionally 
-        console.log("hello")
         setExpanded(!isExpanded);
         props.setActive({
             income: false,

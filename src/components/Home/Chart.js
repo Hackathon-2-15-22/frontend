@@ -79,6 +79,7 @@ const Chart = (props) => {
           labelPosition={85}
         />
 
+
         <table>
           <thead>
             <tr key="4235353">
@@ -88,6 +89,7 @@ const Chart = (props) => {
           </thead>
           <tbody>{expensesList}</tbody>
         </table>
+
       </div>
     </>
   );
