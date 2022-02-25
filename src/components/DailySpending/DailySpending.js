@@ -23,9 +23,9 @@ const DailySpending = (props) => {
   const handleAddExpense = async (e) => {
     e.preventDefault();
     try {
-      const newExpense = await createExpense({ category:"Groceries", name, amount });
+      const newExpense = await createExpense({ category:"Daily Spending", name, amount });
       console.log("newExpense:", newExpense);
-      setCategory("Groceries");
+      setCategory("Daily Spending");
       setName("")
       setAmount(0);
     } catch (error) {
