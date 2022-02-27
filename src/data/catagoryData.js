@@ -1,5 +1,5 @@
 const categories = [
-  { category: "Choose a category", color: "" },
+  { category: "Choose category", color: "" },
   { category: "Housing", color: "#FEAED5" },
   { category: "Transportation", color: "#9A76C9" },
   { category: "Travel", color: "#FEC97F" },
@@ -21,6 +21,7 @@ const categories = [
   { category: "Emergency Fund", color: "#480B77" },
   { category: "Large Purchases", color: "#035CF9" },
   { category: "Goals", color: "#B2186C" },
+  { category: "Daily Spending", color: "#ff0000" },
 ];
 
 export default categories;

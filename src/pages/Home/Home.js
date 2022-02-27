@@ -61,20 +61,20 @@ const Home = ({ user }) => {
   return (
     <main className="home">
       <h1 className="title text-center">Your Dashboard</h1>
-      <div class="box">
+      <div className="box">
         <Goal />
       </div>
-      <div class="box">
+      <div className="box">
         <Expense
           userFundsLeft={userFundsLeft}
           userWealth={userWealth}
           userExpenses={userExpenses}
         />
       </div>
-      <div class="box">
+      <div className="box">
         <Income userWealth={userWealth} />
       </div>
-      <div class="box">
+      <div className="box">
         <Chart />
       </div>
     </main>
