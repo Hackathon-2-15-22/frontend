@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import { Row } from "react-bootstrap";
 
-let inputStyle = {
-  flexDirection: "row",
-  alignItems: "center",
-};
 
 const DailySpendingList = ({ expense, handleDeleteExpense }) => {
+  let inputStyle = {
+    flexDirection: "row",
+    alignItems: "center",
+  };
 
+   let date = new Date(expense.createdAt)
+  
   return (
     <>
       <div className="expense-category expense-list">
@@ -26,11 +28,13 @@ const DailySpendingList = ({ expense, handleDeleteExpense }) => {
           ></input>
           <input
             className="expense-amount"
-            style={{ width: "13vw" }}
+            style={{ width: "20vw" }}
             type="text"
-            value={expense.timestamp}
+            value={( date.toDateString().slice(4))}
           ></input>
-          <button onClick={() => handleDeleteExpense(expense._id)}>-</button>
+          <button onClick={(e, onboarding) => handleDeleteExpense(e, expense._id, onboarding=true)}
+            className="minus"
+          >—</button>
         </div>
       </div>
     </>
