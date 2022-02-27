@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row } from "react-bootstrap";
 
 let inputStyle = {
@@ -7,7 +7,6 @@ let inputStyle = {
 };
 
 const DailySpendingList = ({ expense, handleDeleteExpense }) => {
-  console.log(expense);
 
   return (
     <>
