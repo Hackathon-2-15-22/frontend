@@ -17,9 +17,7 @@ const DailySpending = (props) => {
   const [date, setDate] = useState();
 
   const current = new Date();
-  const currentDate = `${current.getDate()}/${
-    current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  const currentDate = current.toDateString().slice(4)
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
@@ -37,8 +35,8 @@ const DailySpending = (props) => {
       throw error;
     }
   };
-
-  const handleDeleteExpense = async (e, expenseId) => {
+  const handleDeleteExpense = async (e, expenseId, onboarding=false) => {
+    if (onboarding===true) {e.preventDefault()}
     try {
       await deleteExpense(expenseId);
       setExpenses(expenses.filter((expense) => expense._id !== expenseId));
