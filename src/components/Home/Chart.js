@@ -7,7 +7,6 @@ import { getUser } from "../../utility/auth";
 import { getAllExpenses } from "../../utility/expenseService";
 
 const Chart = (props) => {
-  console.log("chart")
   let expenseTotal = 0;
   let calculatedData = [];
   let counter = 0;
@@ -46,7 +45,6 @@ const Chart = (props) => {
       title: i,
       value: Math.floor((mergedExpenseData[i] / expenseTotal) * 100),
       color: col.color,
-      // amount: allUserExpenseData[i].amount
     };
     counter += 1;
   }
@@ -59,9 +57,6 @@ const Chart = (props) => {
     fontSize: "4px",
     fontFamily: "sans-serif",
   };
-
-    
-
 
   const expensesList = calculatedData.map((expenseData) => (
         <tr key={expenseData.id}>
