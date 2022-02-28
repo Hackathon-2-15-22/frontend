@@ -1,32 +1,40 @@
 import React, { useState, useEffect } from "react";
 import {
   createExpense,
-  getAllExpenses,
   deleteExpense,
+  getAllExpenses,
 } from "../../utility/expenseService";
-import ExpenseList from "./ExpenseList";
 
 //assests
-import categories from "../../data/catagoryData";
 import { getUser } from "../../utility/auth";
+import DailySpendingList from "./DailySpendingList";
 
-const ExpenseForm = (props) => {
+const DailySpending = (props) => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
+  const [name, setName] = useState(0);
   const [expenses, setExpenses] = useState();
+  const [date, setDate] = useState();
+
+  const current = new Date();
+  const currentDate = current.toDateString().slice(4);
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
     try {
-      const newExpense = await createExpense({ category, amount });
+      const newExpense = await createExpense({
+        category: "Daily Spending",
+        name,
+        amount,
+      });
       console.log("newExpense:", newExpense);
-      setCategory("");
+      setCategory("Daily Spending");
+      setName("");
       setAmount(0);
     } catch (error) {
       throw error;
     }
   };
-
   const handleDeleteExpense = async (e, expenseId, onboarding = false) => {
     if (onboarding === true) {
       e.preventDefault();
@@ -58,7 +66,9 @@ const ExpenseForm = (props) => {
     const fetchAllExpenses = async () => {
       let expenseData = await getAllExpenses();
       const userId = await getUser();
-      expenseData = expenseData.filter((exp) => exp.owner === userId.profile);
+      expenseData = expenseData.filter(
+        (exp) => exp.name && exp.owner === userId.profile
+      );
       setExpenses(expenseData);
     };
     fetchAllExpenses();
@@ -67,43 +77,53 @@ const ExpenseForm = (props) => {
   return (
     <>
       {expenses?.map((expense) => (
-        <ExpenseList
-          expense={expense}
+        <DailySpendingList
           key={expense._id}
+          expense={expense}
           handleDeleteExpense={handleDeleteExpense}
           handleRounding={handleRounding}
         />
       ))}
       <form className="column" autoComplete="off">
         <div className="expense-list">
-          {/* <label htmlFor="">Add Expenses</label> */}
-          <div className="expense-category-form">
-            <select
-              name="category"
-              required
-              onChange={(e) => setCategory(e.target.value)}
-              value={category}
-            >
-              {categories.map((element) => (
-                <option key={element.category} value={element.category}>
-                  {element.category}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="expense-input">
+          <label key="label1" htmlFor="">
+            Add Spending
+          </label>
+
+          <div className="" style={{ flexDirection: "row" }}>
             <input
+              className="expense-amount"
+              style={{ width: "20vw" }}
+              name="name"
+              required
+              placeholder="add misc daily spending"
+              onChange={(e) => setName(e.target.value)}
+            />
+
+            <input
+              className="expense-amount"
+              style={{ width: "13vw" }}
               name="amount"
               type="decimal"
-              className="expense-amount"
               id="amount"
               placeholder="$ 0.00"
-              value={amount === 0 ? 0 : amount}
+              value={amount === 0 ? "" : amount}
               onChange={(e) => setAmount(e.target.value)}
               required
             />
+
+            <input
+              className="expense-amount"
+              style={{ width: "20vw" }}
+              name="date"
+              type="text"
+              id="date"
+              placeholder={date}
+              defaultValue={currentDate}
+            />
           </div>
         </div>
+
         <button type="button" onClick={handleAddExpense} className="grey-plus">
           +
         </button>
@@ -112,4 +132,4 @@ const ExpenseForm = (props) => {
   );
 };
 
-export default ExpenseForm;
+export default DailySpending;
