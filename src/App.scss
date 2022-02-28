@@ -53,7 +53,7 @@ h1 {@include heading}
     font-size: 1.25rem;
     font-weight: 800;
 }
-h2 {@include sub-heading()}
+h2 {@include sub-heading}
 
 @mixin onboarding {
     display: flex;
@@ -61,12 +61,6 @@ h2 {@include sub-heading()}
     max-width: 560px;
     margin: 0 auto;
 }
-
-@mixin plus($color) {
-    padding: 50px;
-}
-.grey-plus {@include plus($darker-grey)}
-.blue-plus {@include plus($light-blue)}
 
 /////////////////////////////////////////////
 // UNIVERSAL STYLING
@@ -105,10 +99,20 @@ button {
         align-self: center;
         margin-top: 5vh !important;
     }
+    &.blue-plus {
+        @extend .grey-plus;
+        background-color: $light-blue;
+    }
 }
 
-span {
+span.green {
     color: $cash;
+    padding: 0px !important;
+}
+
+span.num {
+    font-size: 2.5rem;
+    font-weight: 400;
     padding: 0px !important;
 }
 
@@ -276,6 +280,25 @@ form * {align-items: flex-start;}
     }
     .bigNum {
         font-size: 1.0325rem;
+    }
+}
+
+.goals {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.chart {
+    tbody {
+        width: 75vw;
+        * {margin-bottom: 5px; max-width: 320px;}
+        tr {
+            @include row;
+            width: inherit;
+            .color {border-radius: 15px; width: 19px; margin-right: 10px;}
+            .category, .amount {padding-top: 5px}
+            .category {margin-right: auto;}
+        }
     }
 }
 
