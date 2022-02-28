@@ -7,6 +7,7 @@ import { getUser } from "../../utility/auth";
 const Goal = (props) => {
   let goalTotal = 0;
   let towardGoal = 0;
+  let percentage = 0
 
   const [userGoalTotal, setUserGoalTotal] = useState(0);
   const [userSavedForGoal, setUserSavedForGoal] = useState(0);
@@ -43,16 +44,16 @@ const Goal = (props) => {
 
   calculateSavedTowardGoal();
   calculateGoalTotal();
-
-  let percentage = (userSavedForGoal / userGoalTotal) * 100;
-
+if (userSavedForGoal>0 && userGoalTotal>0){
+  percentage = (userSavedForGoal / userGoalTotal) * 100;
+ }
   const goalMessage = () => {
     if (percentage <= 25) {
       return "This is a good start!";
     } else if (percentage > 25 && percentage <= 50) {
       return "You're almost halfway there!";
     } else if (percentage > 50 && percentage <= 75) {
-      return "You're more than halfwayt there!";
+      return "You're more than halfway there!";
     } else if (percentage > 75 && percentage < 100) {
       return "You're almost there!";
     } else if (percentage >= 100) {

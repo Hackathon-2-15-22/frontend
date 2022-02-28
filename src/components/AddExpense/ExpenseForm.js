@@ -27,8 +27,10 @@ const ExpenseForm = (props) => {
     }
   };
 
-  const handleDeleteExpense = async (e, expenseId, onboarding=false) => {
-    if (onboarding===true) {e.preventDefault()}
+  const handleDeleteExpense = async (e, expenseId, onboarding = false) => {
+    if (onboarding === true) {
+      e.preventDefault();
+    }
     try {
       await deleteExpense(expenseId);
       setExpenses(expenses.filter((expense) => expense._id !== expenseId));
@@ -38,16 +40,19 @@ const ExpenseForm = (props) => {
   };
 
   const handleRounding = (n) => {
-    if (String(n).indexOf('.') > -1) {
-      const dollars = String(n).split('.')[0]
-      let cents = String(n).split('.')[1]
-      console.log(cents)
-      if (cents.length < 2) {cents = cents.padEnd(2, '0')} 
-      else if (cents.length > 2) {cents = cents.slice(0,2)}
-      n = parseFloat(dollars+'.'+cents)
+    if (String(n).indexOf(".") > -1) {
+      const dollars = String(n).split(".")[0];
+      let cents = String(n).split(".")[1];
+      console.log(cents);
+      if (cents.length < 2) {
+        cents = cents.padEnd(2, "0");
+      } else if (cents.length > 2) {
+        cents = cents.slice(0, 2);
+      }
+      n = parseFloat(dollars + "." + cents);
     }
-    return n
-  }
+    return n;
+  };
 
   useEffect(() => {
     const fetchAllExpenses = async () => {
@@ -61,16 +66,15 @@ const ExpenseForm = (props) => {
 
   return (
     <>
-    {expenses?.map((expense) => (
-          <ExpenseList
-            expense={expense}
-            key={expense._id}
-            handleDeleteExpense={handleDeleteExpense}
-            handleRounding={handleRounding}
-          />
-        ))}
+      {expenses?.map((expense) => (
+        <ExpenseList
+          expense={expense}
+          key={expense._id}
+          handleDeleteExpense={handleDeleteExpense}
+          handleRounding={handleRounding}
+        />
+      ))}
       <form className="column" autoComplete="off">
-
         <div className="expense-list">
           {/* <label htmlFor="">Add Expenses</label> */}
           <div className="expense-category-form">
@@ -81,7 +85,9 @@ const ExpenseForm = (props) => {
               value={category}
             >
               {categories.map((element) => (
-                <option value={element.category}>{element.category}</option>
+                <option key={element.category} value={element.category}>
+                  {element.category}
+                </option>
               ))}
             </select>
           </div>
@@ -92,13 +98,15 @@ const ExpenseForm = (props) => {
               className="expense-amount"
               id="amount"
               placeholder="$ 0.00"
-              value={amount===0? null : amount}
+              value={amount === 0 ? 0 : amount}
               onChange={(e) => setAmount(e.target.value)}
               required
             />
           </div>
         </div>
-        <button type="button" onClick={handleAddExpense} className="grey-plus">+</button>
+        <button type="button" onClick={handleAddExpense} className="grey-plus">
+          +
+        </button>
       </form>
     </>
   );
