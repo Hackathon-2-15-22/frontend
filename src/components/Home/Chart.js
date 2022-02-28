@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 //assests
@@ -7,6 +7,7 @@ import { getUser } from "../../utility/auth";
 import { getAllExpenses } from "../../utility/expenseService";
 
 const Chart = (props) => {
+  console.log("chart")
   let expenseTotal = 0;
   let calculatedData = [];
   let counter = 0;
@@ -27,16 +28,13 @@ const Chart = (props) => {
 
       setMergedExpenseData(merge);
       setAllUserExpenseData(allExpenses);
+
     } catch (error) {
       throw error;
     }
   };
 
-  const defaultLabelStyle = {
-    fontSize: "4px",
-    fontFamily: "sans-serif",
-  };
-
+  if (allUserExpenseData){
   for (let ele in allUserExpenseData) {
     expenseTotal += allUserExpenseData[ele].amount;
   }
@@ -51,10 +49,18 @@ const Chart = (props) => {
     };
     counter += 1;
   }
-
+}
   useEffect(() => {
     getAllUsersExpenses();
   }, []);
+
+  const defaultLabelStyle = {
+    fontSize: "4px",
+    fontFamily: "sans-serif",
+  };
+
+    
+
 
   const expensesList = calculatedData.map((expenseData) => (
     <tr key={expenseData.id}>
@@ -65,7 +71,7 @@ const Chart = (props) => {
     </tr>
   ));
 
-  return (
+    return (
     <>
       <div id="chart1" className="chart">
         <h1>Your Spendings</h1>
@@ -91,8 +97,8 @@ const Chart = (props) => {
         </table>
 
       </div>
-    </>
+      </>
   );
-};
+} 
 
 export default Chart;
