@@ -7,7 +7,6 @@ import { getUser } from "../../utility/auth";
 import { getAllExpenses } from "../../utility/expenseService";
 
 const Chart = (props) => {
-  console.log("chart")
   let expenseTotal = 0;
   let calculatedData = [];
   let counter = 0;
@@ -59,19 +58,18 @@ const Chart = (props) => {
     fontFamily: "sans-serif",
   };
 
-    
-
-
   const expensesList = calculatedData.map((expenseData) => (
-    <tr key={expenseData.id}>
-      <td style={{ background: expenseData.color }}>
-      &emsp;
-      </td>
-      <td>{expenseData.title}&emsp;${mergedExpenseData[expenseData.title]}</td>
-    </tr>
+        <tr key={expenseData.id}>
+          <td className="color"
+            style={{ background: expenseData.color }}>
+            &emsp;
+          </td>
+          <td className="category">{expenseData.title}</td>
+          <td className="amount">{`$${mergedExpenseData[expenseData.title]}`}</td>
+        </tr>
   ));
 
-    return (
+  return (
     <>
       <div id="chart1" className="chart">
         <h1>Your Spendings</h1>
@@ -85,19 +83,12 @@ const Chart = (props) => {
           labelPosition={85}
         />
 
-
         <table>
-          <thead>
-            <tr key="4235353">
-              <th>Color</th>
-              <th>Category</th>
-            </tr>
-          </thead>
           <tbody>{expensesList}</tbody>
         </table>
 
       </div>
-      </>
+    </>
   );
 } 
 
