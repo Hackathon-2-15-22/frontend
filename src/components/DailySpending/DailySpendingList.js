@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { Row } from "react-bootstrap";
-
+import React from "react";
 
 const DailySpendingList = ({ expense, handleDeleteExpense }) => {
   let inputStyle = {
@@ -8,8 +6,8 @@ const DailySpendingList = ({ expense, handleDeleteExpense }) => {
     alignItems: "center",
   };
 
-   let date = new Date(expense.createdAt)
-  
+  let date = new Date(expense.createdAt);
+
   return (
     <>
       <div className="expense-category expense-list">
@@ -18,23 +16,28 @@ const DailySpendingList = ({ expense, handleDeleteExpense }) => {
             className="expense-amount"
             style={{ width: "20vw" }}
             type="text"
-            value={expense.name}
+            defaultValue={expense.name}
           ></input>
           <input
             className="expense-amount"
             style={{ width: "10vw" }}
             type="text"
-            value={"$" + expense.amount}
+            defaultValue={"$" + expense.amount}
           ></input>
           <input
             className="expense-amount"
             style={{ width: "20vw" }}
             type="text"
-            value={( date.toDateString().slice(4))}
+            defaultValue={date.toDateString().slice(4)}
           ></input>
-          <button onClick={(e, onboarding) => handleDeleteExpense(e, expense._id, onboarding=true)}
+          <button
             className="minus"
-          >—</button>
+            onClick={(e, onboarding) =>
+              handleDeleteExpense(e, expense._id, (onboarding = true))
+            }
+          >
+            —
+          </button>
         </div>
       </div>
     </>

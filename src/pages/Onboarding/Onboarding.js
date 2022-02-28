@@ -23,14 +23,13 @@ function CollapsibleIncome(props) {
     }
 
     return (
-        <div className="collapsible">
+        <div key="col1" className="collapsible">
             <div className="header" {...getToggleProps({onClick: handleOnClick})}>
-                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 1. Your Monthly Income
             </div>
-            <div {...getCollapseProps()}>
-                <div className="content">
-                    <IncomeForm handleOnClick={handleOnClick} user={props.user}/>
+            <div key="income1" {...getCollapseProps()}>
+                <div key="income2" className="content">
+                    <IncomeForm key="income3" handleOnClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>
@@ -54,14 +53,14 @@ function CollapsibleExpenses(props) {
         props.makeActive()
     }
 return (
-        <div className="collapsible">
-            <div className="header" {...getToggleProps({onClick: handleOnClick})}>
+        <div key="exp1" className="collapsible">
+            <div key="exp2"className="header" {...getToggleProps({onClick: handleOnClick})}>
                 {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 2. Your Monthly Expenses
             </div>
-            <div {...getCollapseProps()}>
-                <div className="content">
-                    <Expenses toggleClick={handleOnClick} user={props.user}/>
+            <div key="exp3" {...getCollapseProps()}>
+                <div key="exp4" className="content">
+                    <Expenses key="exp5" toggleClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>
@@ -85,14 +84,14 @@ function CollapsibleGoals(props) {
         props.makeActive()
     }
 return (
-        <div className="collapsible">
-            <div className="header" {...getToggleProps({onClick: handleOnClick})}>
+        <div key="goal1" className="collapsible">
+            <div key="goal2" className="header" {...getToggleProps({onClick: handleOnClick})}>
                 {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 3. Your Saving Goals
             </div>
-            <div {...getCollapseProps()}>
-                <div className="content">
-                    <GoalForm toggleClick={handleOnClick} user={props.user}/>
+            <div key="goal3" {...getCollapseProps()}>
+                <div key="goal4" className="content">
+                    <GoalForm key="goal5" toggleClick={handleOnClick} user={props.user}/>
                 </div>
             </div>
         </div>

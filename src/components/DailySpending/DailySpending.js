@@ -17,7 +17,7 @@ const DailySpending = (props) => {
   const [date, setDate] = useState();
 
   const current = new Date();
-  const currentDate = current.toDateString().slice(4)
+  const currentDate = current.toDateString().slice(4);
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
@@ -35,8 +35,10 @@ const DailySpending = (props) => {
       throw error;
     }
   };
-  const handleDeleteExpense = async (e, expenseId, onboarding=false) => {
-    if (onboarding===true) {e.preventDefault()}
+  const handleDeleteExpense = async (e, expenseId, onboarding = false) => {
+    if (onboarding === true) {
+      e.preventDefault();
+    }
     try {
       await deleteExpense(expenseId);
       setExpenses(expenses.filter((expense) => expense._id !== expenseId));
@@ -76,7 +78,7 @@ const DailySpending = (props) => {
     <>
       {expenses?.map((expense) => (
         <DailySpendingList
-          key={expense.id}
+          key={expense._id}
           expense={expense}
           handleDeleteExpense={handleDeleteExpense}
           handleRounding={handleRounding}
@@ -84,7 +86,9 @@ const DailySpending = (props) => {
       ))}
       <form className="column" autoComplete="off">
         <div className="expense-list">
-          <label htmlFor="">Add Spending</label>
+          <label key="label1" htmlFor="">
+            Add Spending
+          </label>
 
           <div className="" style={{ flexDirection: "row" }}>
             <input
@@ -115,8 +119,7 @@ const DailySpending = (props) => {
               type="text"
               id="date"
               placeholder={date}
-              value={currentDate}
-              onChange={(e) => setDate(e.target.value)}
+              defaultValue={currentDate}
             />
           </div>
         </div>
