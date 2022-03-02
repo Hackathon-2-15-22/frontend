@@ -11,12 +11,13 @@ const DailySpendingList = ({ expense, handleDeleteExpense }) => {
   return (
     <>
       <div className="adjust">
-        <div className="adjust" style={inputStyle}>
+        <div className="row" style={inputStyle}>
           <input
             type="text"
             defaultValue={expense.name}
           ></input>
           <input
+            className="cash"
             type="text"
             defaultValue={"$" + expense.amount}
           ></input>
