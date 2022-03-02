@@ -11,8 +11,7 @@ function CollapsibleIncome(props) {
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
     function handleOnClick() {
-        // Do more stuff with the click event!
-        // Or, set isExpanded conditionally
+        // State to track if area is expanded or collapsed
         setExpanded(!isExpanded);
         props.setActive({
             income: isExpanded,
