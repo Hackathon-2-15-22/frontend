@@ -10,23 +10,17 @@ const DailySpendingList = ({ expense, handleDeleteExpense }) => {
 
   return (
     <>
-      <div className="expense-category expense-list">
-        <div className="row" style={inputStyle}>
+      <div className="adjust">
+        <div className="adjust" style={inputStyle}>
           <input
-            className="expense-amount"
-            style={{ width: "20vw" }}
             type="text"
             defaultValue={expense.name}
           ></input>
           <input
-            className="expense-amount"
-            style={{ width: "10vw" }}
             type="text"
             defaultValue={"$" + expense.amount}
           ></input>
           <input
-            className="expense-amount"
-            style={{ width: "20vw" }}
             type="text"
             defaultValue={date.toDateString().slice(4)}
           ></input>

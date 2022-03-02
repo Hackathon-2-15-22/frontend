@@ -84,8 +84,8 @@ const DailySpending = (props) => {
           handleRounding={handleRounding}
         />
       ))}
-      <form className="" autoComplete="off">
-        <div className="adjust">
+      <form className="adjust" autoComplete="off">
+        <div className="">
 
           <div className="row">
             <input
@@ -96,6 +96,7 @@ const DailySpending = (props) => {
             />
 
             <input
+              className="cash"
               name="amount"
               type="decimal"
               id="amount"
