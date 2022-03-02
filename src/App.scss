@@ -26,7 +26,7 @@ $darker-grey: #ADADAD;
 
 @mixin row {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     justify-content: space-between;
 }
 .row {@include row}
@@ -220,6 +220,7 @@ form * {align-items: flex-start;}
     @include onboarding;
     width: 95%;
     align-items: flex-start;
+
     .expense-top {margin-top: 4vh;}
     .expense-category {
         background: $dark-blue;
@@ -295,11 +296,21 @@ form * {align-items: flex-start;}
         tr {
             @include row;
             width: inherit;
-            .color {border-radius: 15px; width: 19px; margin-right: 10px;}
+            .color {
+                border-radius: 15px; 
+                width: 19px; 
+                margin-right: 10px;
+            }
             .category, .amount {padding-top: 5px}
             .category {margin-right: auto;}
         }
     }
+}
+
+progress {
+    height: 2rem;
+    width: 70vw;
+    max-width: 300px;
 }
 
 /////////////////////////////////////////////

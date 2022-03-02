@@ -68,8 +68,8 @@ if (userSavedForGoal>0 && userGoalTotal>0){
           <span className="num">${userSavedForGoal} / ${userGoalTotal}</span>
         </div>
         <progress max={100} value={percentage} />
+        <div>{goalMessage()}</div>
         <button>Adjust Goals</button>
-        <h2>{goalMessage()}</h2>
       </div>
     </>
   );

@@ -84,16 +84,11 @@ const DailySpending = (props) => {
           handleRounding={handleRounding}
         />
       ))}
-      <form className="column" autoComplete="off">
-        <div className="expense-list">
-          <label key="label1" htmlFor="">
-            Add Spending
-          </label>
+      <form className="" autoComplete="off">
+        <div className="adjust">
 
-          <div className="" style={{ flexDirection: "row" }}>
+          <div className="row">
             <input
-              className="expense-amount"
-              style={{ width: "20vw" }}
               name="name"
               required
               placeholder="add misc daily spending"
@@ -101,8 +96,6 @@ const DailySpending = (props) => {
             />
 
             <input
-              className="expense-amount"
-              style={{ width: "13vw" }}
               name="amount"
               type="decimal"
               id="amount"
@@ -113,8 +106,6 @@ const DailySpending = (props) => {
             />
 
             <input
-              className="expense-amount"
-              style={{ width: "20vw" }}
               name="date"
               type="text"
               id="date"
@@ -127,6 +118,8 @@ const DailySpending = (props) => {
         <button type="button" onClick={handleAddExpense} className="grey-plus">
           +
         </button>
+
+        <button type="submit" className="submit">Save</button>
       </form>
     </>
   );
