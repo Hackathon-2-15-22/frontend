@@ -14,12 +14,13 @@ const ExpenseForm = (props) => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
   const [expenses, setExpenses] = useState();
+  const [click, setClick] = useState(1)
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
+    setClick(click+1)
     try {
       const newExpense = await createExpense({ category, amount });
-      console.log("newExpense:", newExpense);
       setCategory("");
       setAmount(0);
     } catch (error) {
@@ -43,7 +44,6 @@ const ExpenseForm = (props) => {
     if (String(n).indexOf(".") > -1) {
       const dollars = String(n).split(".")[0];
       let cents = String(n).split(".")[1];
-      console.log(cents);
       if (cents.length < 2) {
         cents = cents.padEnd(2, "0");
       } else if (cents.length > 2) {
@@ -62,7 +62,7 @@ const ExpenseForm = (props) => {
       setExpenses(expenseData);
     };
     fetchAllExpenses();
-  }, [expenses]);
+  }, [click]);
 
   return (
     <>

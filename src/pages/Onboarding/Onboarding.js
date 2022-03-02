@@ -12,7 +12,7 @@ function CollapsibleIncome(props) {
 
     function handleOnClick() {
         // Do more stuff with the click event!
-        // Or, set isExpanded conditionally 
+        // Or, set isExpanded conditionally
         setExpanded(!isExpanded);
         props.setActive({
             income: isExpanded,
