@@ -5,7 +5,7 @@ const Navbar = (props) => {
     return (
         <div className="nav">
             <Link to="/">
-                <div className="title">ea<span>$</span>e</div>
+                <div className="title">ea<span className='green'>$</span>e</div>
             </Link>
             {location==='/' ? (
                 <>

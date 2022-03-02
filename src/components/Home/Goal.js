@@ -22,7 +22,7 @@ const Goal = (props) => {
   };
   return (
     <>
-      <div className="goal">
+      <div className="goals">
         <h1>Goal</h1>
         <h2>
           ${props.goalSavedTotal} out of ${props.userGoalTotal}
