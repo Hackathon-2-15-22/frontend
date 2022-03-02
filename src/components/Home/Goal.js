@@ -22,10 +22,12 @@ const Goal = (props) => {
   };
   return (
     <>
-      <div className="goals">
+      <div className="goal">
         <h1>Goal</h1>
         <h2>
-          ${props.goalSavedTotal} out of ${props.userGoalTotal}
+          <span className="num">
+            ${props.goalSavedTotal} / ${props.userGoalTotal}
+          </span>
         </h2>
         <progress max={100} value={percentage} />
         <button>Adjust Goals</button>
