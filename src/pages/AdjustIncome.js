@@ -10,10 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const AdjustIncome = (props) => {
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    getIncome();
-  });
 
   const [formData, setFormData] = useState({
     regularAmount: 0,
@@ -23,7 +19,7 @@ const AdjustIncome = (props) => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: parseInt(e.target.value),
     });
   };
 
@@ -43,6 +39,10 @@ const AdjustIncome = (props) => {
     })
     return data
   };
+
+  useEffect(() => {
+    getIncome();
+  },[]);
 
   // Function to see if user has income logged in db, if not it will create
   const findIncome = async () => {
@@ -69,7 +69,7 @@ const AdjustIncome = (props) => {
   return (
     <div className="adjust">
       <h1 className="title">Adjust Your Income</h1>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form autoComplete="off" onSubmit={handleSubmit} >
         <div>
           <input
             type="number"
