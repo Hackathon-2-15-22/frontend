@@ -7,7 +7,6 @@ import { getUser } from "../../utility/auth";
 import { getAllExpenses } from "../../utility/expenseService";
 
 const Chart = (props) => {
-  console.log("chart")
   let expenseTotal = 0;
   let calculatedData = [];
   let counter = 0;

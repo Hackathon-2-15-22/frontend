@@ -10,25 +10,24 @@ import { getUser } from "../../utility/auth";
 import DailySpendingList from "./DailySpendingList";
 
 const DailySpending = (props) => {
-  const [category, setCategory] = useState("");
   const [amount, setAmount] = useState(0);
   const [name, setName] = useState(0);
   const [expenses, setExpenses] = useState();
-  const [date, setDate] = useState();
+  const [click, setClick] = useState(1)
 
   const current = new Date();
   const currentDate = current.toDateString().slice(4);
 
+
   const handleAddExpense = async (e) => {
     e.preventDefault();
+    setClick(click+1)
     try {
       const newExpense = await createExpense({
         category: "Daily Spending",
         name,
         amount,
       });
-      console.log("newExpense:", newExpense);
-      setCategory("Daily Spending");
       setName("");
       setAmount(0);
     } catch (error) {
@@ -51,7 +50,6 @@ const DailySpending = (props) => {
     if (String(n).indexOf(".") > -1) {
       const dollars = String(n).split(".")[0];
       let cents = String(n).split(".")[1];
-      console.log(cents);
       if (cents.length < 2) {
         cents = cents.padEnd(2, "0");
       } else if (cents.length > 2) {
@@ -72,7 +70,7 @@ const DailySpending = (props) => {
       setExpenses(expenseData);
     };
     fetchAllExpenses();
-  }, [expenses]);
+  }, [click]);
 
   return (
     <>
@@ -115,10 +113,9 @@ const DailySpending = (props) => {
             <input
               className="expense-amount"
               style={{ width: "20vw" }}
-              name="date"
               type="text"
               id="date"
-              placeholder={date}
+              placeholder={currentDate}
               defaultValue={currentDate}
             />
           </div>
