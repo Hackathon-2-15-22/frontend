@@ -131,6 +131,12 @@ span.num {
     @include row;
     * {padding: 1vh;}
     .logo {margin-left: 0.5rem;}
+    height: 60px;
+    position: sticky;
+    top: 0;
+    background-color: #C3EDF2;
+    width: 100vw;
+
 }
 
 .menu {
@@ -140,6 +146,60 @@ span.num {
     margin-right: 0.5rem;
     padding: 10px
 }
+
+.hamburgerIcon {
+    align-self: center;
+}
+  
+.menuNav {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: white;
+    list-style: none;
+}
+
+  .hamburgerNav {
+      @include row;
+      padding: 0;
+      background-color: white;
+      height: 60px;
+  }
+  .menuNav.showMenu {
+    width: 100vw;
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1000000000;
+  }
+
+  .navLinks {
+      @include column;
+      padding: 0;
+  }
+
+  hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color: #9F9F9F;
+    height: 2px;
+  }
+  
+  .navLink {
+      @include center;     
+      height: 40px;
+      display: flex;
+      align-items: center;
+  }
+  
+  .navLogout {
+      display: flex;
+      margin: 100px auto 0;
+  }
 
 /////////////////////////////////////////////
 // LANDING
@@ -341,4 +401,17 @@ progress {
         }
         margin-bottom: 2vh;}
     button.submit {margin-top: 5vh !important; align-self: center;}
+}
+
+/////////////////////////////////////////////
+// ADJUST -- Income
+/////////////////////////////////////////////
+
+.adjustButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.adjustButtons > button {
+    width: 140px;
 }

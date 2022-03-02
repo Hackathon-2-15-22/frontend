@@ -7,29 +7,19 @@ import {
 } from "../utility/incomeService";
 import { useNavigate } from "react-router-dom";
 
-let income = 0;
-let additionalIncome = 0;
 
 const AdjustIncome = (props) => {
   const navigate = useNavigate();
-  useEffect(() => {
-    getIncome();
-  }, []);
 
   const [formData, setFormData] = useState({
-    income: 0,
-    additionalIncome: 0,
+    regularAmount: 0,
+    additionalAmount: 0,
   });
 
   const handleChange = (e) => {
-    e.target.name === "income"
-      ? (income = e.target.value)
-      : (additionalIncome = e.target.value);
-    let sum = parseInt(income) + parseInt(additionalIncome);
     setFormData({
       ...formData,
-      amount: sum,
-      [e.target.name]: e.target.value,
+      [e.target.name]: parseInt(e.target.value),
     });
   };
 
@@ -43,8 +33,16 @@ const AdjustIncome = (props) => {
       }
     });
     let data = await getIncomeById(incomeId);
+    setFormData({
+      regularAmount: data.regularAmount,
+      additionalAmount: data.additionalAmount,
+    })
     return data
   };
+
+  useEffect(() => {
+    getIncome();
+  },[]);
 
   // Function to see if user has income logged in db, if not it will create
   const findIncome = async () => {
@@ -71,13 +69,14 @@ const AdjustIncome = (props) => {
   return (
     <div className="adjust">
       <h1 className="title">Adjust Your Income</h1>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form autoComplete="off" onSubmit={handleSubmit} >
         <div>
           <input
             type="number"
             autoComplete="off"
-            id="income"
-            name="income"
+            id="regularAmount"
+            name="regularAmount"
+            value={formData.regularAmount}
             required={true}
             placeholder="Regular Monthly Income"
             onChange={handleChange}
@@ -85,14 +84,17 @@ const AdjustIncome = (props) => {
           <input
             type="number"
             autoComplete="off"
-            id="additionalIncome"
-            name="additionalIncome"
+            id="additionalAmount"
+            name="additionalAmount"
+            value={formData.additionalAmount}
             placeholder="Additional Income"
             onChange={handleChange}
           />
         </div>
-        <button>Update</button>
-        <button onClick={() => navigate('/home')}>Home</button>
+        <div className="adjustButtons">
+          <button className="b1">Update</button>
+          <button className="b1" onClick={() => navigate('/home')}>Home</button>
+        </div>
       </form>
     </div>
   );

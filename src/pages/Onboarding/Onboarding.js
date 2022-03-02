@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useCollapse from 'react-collapsed';
 import IncomeForm from '../../components/IncomeForm/IncomeForm';
 import Expenses from '../Expenses/Expenses';
@@ -11,16 +11,15 @@ function CollapsibleIncome(props) {
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
     function handleOnClick() {
-        // Do more stuff with the click event!
-        // Or, set isExpanded conditionally 
+        // State to track if area is expanded or collapsed
         setExpanded(!isExpanded);
+        //sets the next onboarding tab to open automatically
         props.setActive({
-            income: isExpanded,
-            expenses: false,
+            income: false,
+            expenses: true,
             goals: false
-        })
-        props.makeActive()
-    }
+        });
+    };
 
     return (
         <div key="col1" className="collapsible">
@@ -34,28 +33,36 @@ function CollapsibleIncome(props) {
             </div>
         </div>
     );
-}
+};
 
 /////////// Expenses
 function CollapsibleExpenses(props) {
     const [ isExpanded, setExpanded ] = useState(false);
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
+    //if state updates the window will automatically open/close
+    useEffect(() => {
+        if(props.open === true) {
+            setExpanded(true)
+        } else if (props.open === false) {
+            setExpanded(false)
+        }
+    },[props.open]);
+
     function handleOnClick() {
-        // Do more stuff with the click event!
-        // Or, set isExpanded conditionally 
+        // State to track if area is expanded or collapsed
         setExpanded(!isExpanded);
+        //sets the next onboarding tab to open automatically
         props.setActive({
             income: false,
-            expenses: isExpanded,
-            goals: false
-        })
-        props.makeActive()
-    }
+            expenses: false,
+            goals: true
+        });
+    };
+
 return (
         <div key="exp1" className="collapsible">
             <div key="exp2"className="header" {...getToggleProps({onClick: handleOnClick})}>
-                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 2. Your Monthly Expenses
             </div>
             <div key="exp3" {...getCollapseProps()}>
@@ -65,28 +72,30 @@ return (
             </div>
         </div>
     );
-}
+};
 
 /////////////// Goals
 function CollapsibleGoals(props) {
     const [ isExpanded, setExpanded ] = useState(false);
     const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
 
+    //if state updates the window will automatically open/close
+    useEffect(() => {
+        if(props.open === true) {
+            setExpanded(true)
+        } else if (props.open === false) {
+            setExpanded(false)
+        }
+    },[props.open]);
+
     function handleOnClick() {
-        // Do more stuff with the click event!
-        // Or, set isExpanded conditionally 
+        // State to track if area is expanded or collapsed
         setExpanded(!isExpanded);
-        props.setActive({
-            income: false,
-            expenses: false,
-            goals: isExpanded
-        })
-        props.makeActive()
-    }
+    };
+
 return (
         <div key="goal1" className="collapsible">
             <div key="goal2" className="header" {...getToggleProps({onClick: handleOnClick})}>
-                {/* {isExpanded ? 'Collapse' : 'Expand'} */}
                 3. Your Saving Goals
             </div>
             <div key="goal3" {...getCollapseProps()}>
@@ -96,7 +105,7 @@ return (
             </div>
         </div>
     );
-}
+};
 
 const Onboarding = (props) => {
     
@@ -104,42 +113,40 @@ const Onboarding = (props) => {
         income: true,
         expenses: false,
         goals: false
-    })
+    });
 
-    function makeActive() {
-        if (active.income === 'false' && active.goals === 'false') {
-            setActive({
-                income: false,
-                expenses: true,
-                goals: false
-            })
-        } else if (active.income === 'false' && active.expenses === 'false') {
-            setActive({
-                income: false,
-                expenses: false,
-                goals: true
-            })
-        } else if (active.expenses === 'false' && active.goals === 'false') {
-            setActive({
-                income: true,
-                expenses: false,
-                goals: false
-            })
-        }
-    }
-
-
+    // function makeActive() {
+    //     if (active.income === 'false' && active.goals === 'false') {
+    //         setActive({
+    //             income: false,
+    //             expenses: true,
+    //             goals: false
+    //         })
+    //     } else if (active.income === 'false' && active.expenses === 'false') {
+    //         setActive({
+    //             income: false,
+    //             expenses: false,
+    //             goals: true
+    //         })
+    //     } else if (active.expenses === 'false' && active.goals === 'false') {
+    //         setActive({
+    //             income: true,
+    //             expenses: false,
+    //             goals: false
+    //         })
+    //     };
+    // };
 
     return (
         <div className='onboarding'>
             <div className='title text-center'>
                 Set up your profile<br/>in 3 easy steps!
             </div>
-            <CollapsibleIncome user={props.user} makeActive={makeActive} setActive={setActive}/>
-            <CollapsibleExpenses user={props.user} makeActive={makeActive} setActive={setActive}/>
-            <CollapsibleGoals user={props.user} makeActive={makeActive} setActive={setActive}/>
+            <CollapsibleIncome user={props.user} open={active.income} setActive={setActive}/>
+            <CollapsibleExpenses user={props.user} open={active.expenses} setActive={setActive}/>
+            <CollapsibleGoals user={props.user} open={active.goals} setActive={setActive}/>
         </div>
-    )
-}
+    );
+};
 
 export default Onboarding
