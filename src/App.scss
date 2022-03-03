@@ -387,11 +387,10 @@ progress {
         border: 0px;
         border-radius: 5px;
         padding: 10px;
-        margin: 0px 2vw 0vh 0px;
+        margin-right: 2vw;
     }
 
     div.row {
-        @include row;
         @include center;
         margin-bottom: 2vh;
 
@@ -399,7 +398,7 @@ progress {
             width: 20vw;
             &.cash {width: 6vw;}
         }
-        
+
         .minus {margin: 1vw !important;}
     }
 
@@ -414,10 +413,10 @@ progress {
 /////////////////////////////////////////////
 
 .adjustButtons {
-    display: flex;
-    justify-content: space-around;
+    @include row;
+    @include center;
 }
 
-.adjustButtons > button {
-    width: 140px;
+.adjustButtons * {
+    margin: 0 1vw;
 }

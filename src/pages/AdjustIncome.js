@@ -67,10 +67,10 @@ const AdjustIncome = (props) => {
   };
 
   return (
-    <div className="adjust">
-      <h1 className="title">Adjust Your Income</h1>
-      <form autoComplete="off" onSubmit={handleSubmit} >
-        <div>
+    <div>
+      <h1 className="title text-center">Adjust Your Income</h1>
+      <form className="adjust" autoComplete="off" onSubmit={handleSubmit}>
+        <div className="row">
           <input
             type="number"
             autoComplete="off"
@@ -92,8 +92,8 @@ const AdjustIncome = (props) => {
           />
         </div>
         <div className="adjustButtons">
-          <button className="b1">Update</button>
-          <button className="b1" onClick={() => navigate('/home')}>Home</button>
+          <button className="b2">Update</button>
+          <button className="b2" onClick={() => navigate('/home')}>Home</button>
         </div>
       </form>
     </div>
