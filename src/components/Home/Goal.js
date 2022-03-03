@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Goal = (props) => {
+  const navigate = useNavigate();
+
   let percentage = 0;
 
   if (props.goalSavedTotal > 0 && props.userGoalTotal > 0) {
@@ -30,8 +33,8 @@ const Goal = (props) => {
           </span>
         </h2>
         <progress max={100} value={percentage} />
-        <div>{goalMessage()}</div>
-        <button>Adjust Goals</button>
+        <button  onClick={() => navigate("/adjust/goals")} >Adjust Goals</button>
+        <h2 className="text-center">{goalMessage()}</h2>
       </div>
     </>
   );
