@@ -415,8 +415,5 @@ progress {
 .adjustButtons {
     @include row;
     @include center;
-}
-
-.adjustButtons * {
-    margin: 0 1vw;
+    * {margin: 0 1vw;}
 }
