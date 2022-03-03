@@ -39,7 +39,7 @@ const Home = ({ user }) => {
       const incomeData = await getAllIncomes();
       incomeData.forEach((inc) => {
         if (inc.owner === user.profile) {
-          wealth += inc.amount;
+          wealth += inc.regularAmount + inc.additionalAmount;
         }
       });
       setUserWealth(wealth);

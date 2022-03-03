@@ -26,7 +26,7 @@ $darker-grey: #ADADAD;
 
 @mixin row {
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
     justify-content: space-between;
 }
 .row {@include row}
@@ -97,7 +97,7 @@ button {
         padding: 25px !important;
         font-size: 1.5625rem;
         align-self: center;
-        margin-top: 5vh !important;
+        // margin-top: 5vh !important;
     }
     &.blue-plus {
         @extend .grey-plus;
@@ -111,7 +111,7 @@ span.green {
 }
 
 span.num {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     padding: 0px !important;
 }
@@ -280,6 +280,7 @@ form * {align-items: flex-start;}
     @include onboarding;
     width: 95%;
     align-items: flex-start;
+
     .expense-top {margin-top: 4vh;}
     .expense-category {
         background: $dark-blue;
@@ -309,6 +310,7 @@ form * {align-items: flex-start;}
         width: 30vw;
         max-width: 186px;
     }
+    #amount {margin-bottom: 5vh;}
 }
 
 .collapsible {margin-bottom: 2vh;}
@@ -355,23 +357,66 @@ form * {align-items: flex-start;}
         tr {
             @include row;
             width: inherit;
-            .color {border-radius: 15px; width: 19px; margin-right: 10px;}
+            .color {
+                border-radius: 15px; 
+                width: 19px; 
+                margin-right: 10px;
+            }
             .category, .amount {padding-top: 5px}
             .category {margin-right: auto;}
         }
     }
 }
 
+progress {
+    height: 2rem;
+    width: 70vw;
+    max-width: 300px;
+}
+
 /////////////////////////////////////////////
-// ADJUST
+// ADJUST -- Spending
 /////////////////////////////////////////////
-.adjust{
+.adjust {
     @include column;
+    * {margin-bottom: 0px; padding-bottom: 0px;}
+    align-items: flex-start;
+
     input {
         background: $light-blue;
         border: 0px;
         border-radius: 5px;
         padding: 10px;
-        margin: 2vh;
+        margin-right: 2vw;
     }
+
+    div.row {
+        @include center;
+        margin-bottom: 2vh;
+
+        input {
+            width: 20vw;
+            &.cash {width: 6vw;}
+        }
+
+        .minus {margin: 1vw !important;}
+    }
+
+    button.submit {
+        margin-top: 5vh !important; 
+        align-self: center;
+    }
+}
+
+/////////////////////////////////////////////
+// ADJUST -- Income
+/////////////////////////////////////////////
+
+.adjustButtons {
+    @include row;
+    @include center;
+}
+
+.adjustButtons * {
+    margin: 0 1vw;
 }

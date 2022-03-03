@@ -37,10 +37,7 @@ const Navbar = (props) => {
                 <>
                     <div className="hamburgerIcon" onClick={handleToggle}>
                         <i class="fa-solid fa-2xl fa-bars"></i>
-                        {/* {navbarOpen ? "Close" : "Open"} */}
                     </div>
-
-                    
                 <div className={`menuNav ${navbarOpen ? "showMenu" : ""}`}>
                     <div className="hamburgerNav">
                         <Link to="/">
@@ -73,7 +70,10 @@ const Navbar = (props) => {
                         </div>
                         <hr style={hrStyle}/>
                     </div>
-                    <button className='menu navLogout' onClick={props.logout}>
+                    <button className='menu navLogout' onClick={() => {
+                        props.logout();
+                        setNavbarOpen(false)
+                        }}>
                         Sign Out
                     </button>
                 </div>
