@@ -1,10 +1,7 @@
 import DailySpending from "../../components/DailySpending/DailySpending"
-import { getAllExpenses } from "../../utility/expenseService";
-import { getUser } from "../../utility/auth";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Spending = ({ user }) => {
-
 
   useEffect(() => {});
 
