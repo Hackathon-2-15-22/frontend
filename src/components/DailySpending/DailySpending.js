@@ -82,48 +82,40 @@ const DailySpending = (props) => {
           handleRounding={handleRounding}
         />
       ))}
-      <form className="column" autoComplete="off">
-        <div className="expense-list">
-          <label key="label1" htmlFor="">
-            Add Spending
-          </label>
+      <form className="adjust" autoComplete="off">
+        <div className="row">
+          <input
+            name="name"
+            required
+            placeholder="add misc daily spending"
+            onChange={(e) => setName(e.target.value)}
+          />
 
-          <div className="" style={{ flexDirection: "row" }}>
-            <input
-              className="expense-amount"
-              style={{ width: "20vw" }}
-              name="name"
-              required
-              placeholder="add misc daily spending"
-              onChange={(e) => setName(e.target.value)}
-            />
+          <input
+            className="cash"
+            name="amount"
+            type="decimal"
+            id="amount"
+            placeholder="$ 0.00"
+            value={amount === 0 ? "" : amount}
+            onChange={(e) => setAmount(e.target.value)}
+            required
+          />
 
-            <input
-              className="expense-amount"
-              style={{ width: "13vw" }}
-              name="amount"
-              type="decimal"
-              id="amount"
-              placeholder="$ 0.00"
-              value={amount === 0 ? "" : amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-            />
+          <input
+            name="date"
+            type="text"
+            id="date"
+            placeholder={currentDate}
+            defaultValue={currentDate}
+          />
 
-            <input
-              className="expense-amount"
-              style={{ width: "20vw" }}
-              type="text"
-              id="date"
-              placeholder={currentDate}
-              defaultValue={currentDate}
-            />
-          </div>
+          <button type="button" onClick={handleAddExpense} className="minus">
+            +
+          </button>
         </div>
 
-        <button type="button" onClick={handleAddExpense} className="grey-plus">
-          +
-        </button>
+        <button type="submit" className="submit">Save</button>
       </form>
     </>
   );
