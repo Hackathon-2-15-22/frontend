@@ -30,8 +30,8 @@ const Goal = (props) => {
           </span>
         </h2>
         <progress max={100} value={percentage} />
+        <div>{goalMessage()}</div>
         <button>Adjust Goals</button>
-        <h2>{goalMessage()}</h2>
       </div>
     </>
   );
