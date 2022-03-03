@@ -12,6 +12,7 @@ import GoalForm from './components/GoalForm/GoalForm';
 import Expenses from './pages/Expenses/Expenses';
 import AdjustIncome from './pages/AdjustIncome';
 import Spending from './pages/Spending/Spending';
+import AdjGoals from './pages/AdjGoals';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/expenses" element={<Expenses user={user} />} />
             <Route path="/adjust/income" element={<AdjustIncome user={user}/>} />
             <Route path="/adjust/spending" element={<Spending user={user}/>} />
+            <Route path="/adjust/goals" element={<AdjGoals user={user}/>} />
           </>
         ) : (
           <>
