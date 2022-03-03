@@ -111,7 +111,7 @@ span.green {
 }
 
 span.num {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     padding: 0px !important;
 }
@@ -375,32 +375,38 @@ progress {
 }
 
 /////////////////////////////////////////////
-// ADJUST
+// ADJUST -- Spending
 /////////////////////////////////////////////
 .adjust {
     @include column;
     * {margin-bottom: 0px; padding-bottom: 0px;}
-    // width: 100vw;
-    // max-width: 500px;
     align-items: flex-start;
+
     input {
         background: $light-blue;
         border: 0px;
         border-radius: 5px;
         padding: 10px;
-        margin: 0px 2vh 0vh 0px;
-        
-        // &#cash {color: black;}
-        // width: 10vw;
+        margin: 0px 2vw 0vh 0px;
     }
+
     div.row {
-        max-width: 100px;
+        @include row;
+        @include center;
+        margin-bottom: 2vh;
+
         input {
-            width: 15vw;
-            &.cash {width: 40px;}
+            width: 20vw;
+            &.cash {width: 6vw;}
         }
-        margin-bottom: 2vh;}
-    button.submit {margin-top: 5vh !important; align-self: center;}
+        
+        .minus {margin: 1vw !important;}
+    }
+
+    button.submit {
+        margin-top: 5vh !important; 
+        align-self: center;
+    }
 }
 
 /////////////////////////////////////////////

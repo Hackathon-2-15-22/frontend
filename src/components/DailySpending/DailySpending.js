@@ -83,40 +83,37 @@ const DailySpending = (props) => {
         />
       ))}
       <form className="adjust" autoComplete="off">
-        <div className="">
+        <div className="row">
+          <input
+            name="name"
+            required
+            placeholder="add misc daily spending"
+            onChange={(e) => setName(e.target.value)}
+          />
 
-          <div className="row">
-            <input
-              name="name"
-              required
-              placeholder="add misc daily spending"
-              onChange={(e) => setName(e.target.value)}
-            />
+          <input
+            className="cash"
+            name="amount"
+            type="decimal"
+            id="amount"
+            placeholder="$ 0.00"
+            value={amount === 0 ? "" : amount}
+            onChange={(e) => setAmount(e.target.value)}
+            required
+          />
 
-            <input
-              className="cash"
-              name="amount"
-              type="decimal"
-              id="amount"
-              placeholder="$ 0.00"
-              value={amount === 0 ? "" : amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-            />
+          <input
+            name="date"
+            type="text"
+            id="date"
+            placeholder={currentDate}
+            defaultValue={currentDate}
+          />
 
-            <input
-              name="date"
-              type="text"
-              id="date"
-              placeholder={currentDate}
-              defaultValue={currentDate}
-            />
-          </div>
+          <button type="button" onClick={handleAddExpense} className="minus">
+            +
+          </button>
         </div>
-
-        <button type="button" onClick={handleAddExpense} className="grey-plus">
-          +
-        </button>
 
         <button type="submit" className="submit">Save</button>
       </form>
