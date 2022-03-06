@@ -67,36 +67,46 @@ const AdjustIncome = (props) => {
   };
 
   return (
-    <div>
+
+    <main class="column">
       <h1 className="title text-center">Adjust Your Income</h1>
-      <form className="adjust" autoComplete="off" onSubmit={handleSubmit}>
-        <div className="row">
-          <input
-            type="number"
-            autoComplete="off"
-            id="regularAmount"
-            name="regularAmount"
-            value={formData.regularAmount}
-            required={true}
-            placeholder="Regular Monthly Income"
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            autoComplete="off"
-            id="additionalAmount"
-            name="additionalAmount"
-            value={formData.additionalAmount}
-            placeholder="Additional Income"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="adjustButtons">
-          <button className="b2">Update</button>
-          <button className="b2" onClick={() => navigate('/home')}>Home</button>
-        </div>
-      </form>
-    </div>
+      <div className="box">
+        
+        <form className="adjust" autoComplete="off" onSubmit={handleSubmit}>
+          <div className="row">
+            <div>
+              <label htmlFor="">Monthly</label>
+              <input
+                type="number"
+                autoComplete="off"
+                id="regularAmount"
+                name="regularAmount"
+                value={formData.regularAmount}
+                required={true}
+                placeholder="Regular Monthly Income"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="">Additional</label>
+              <input
+                type="number"
+                autoComplete="off"
+                id="additionalAmount"
+                name="additionalAmount"
+                value={formData.additionalAmount}
+                placeholder="Additional Income"
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="adjustButtons">
+            <button className="b2">Update</button>
+            <button className="b2" onClick={() => navigate('/home')}>Home</button>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 };
 

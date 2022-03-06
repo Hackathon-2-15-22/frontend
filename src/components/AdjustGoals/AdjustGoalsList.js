@@ -1,24 +1,22 @@
 import React from "react";
 
 const AdjustGoalsList = ({ goal, handleDeleteGoal }) => {
-  let inputStyle = {
-    flexDirection: "row",
-    alignItems: "center",
-  };
+  // let inputStyle = {
+  //   flexDirection: "row",
+  //   alignItems: "center",
+  // };
 
   return (
     <>
-      <div className="expense-category expense-list">
-        <div className="row" style={inputStyle}>
+      <div className="adjust">
+        <div className="row">
           <input
-            className="expense-amount"
-            style={{ width: "20vw" }}
+            className=""
             type="text"
             defaultValue={goal.name}
           ></input>
           <input
-            className="expense-amount"
-            style={{ width: "10vw" }}
+            className=""
             type="text"
             defaultValue={"$" + goal.amount}
           ></input>
