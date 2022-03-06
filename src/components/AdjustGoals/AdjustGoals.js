@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 //assests
 import AdjustGoalsList from "./AdjustGoalsList";
@@ -22,6 +23,11 @@ const AdjustGoals = (props) => {
       throw error;
     }
   };
+
+  const navigator = useNavigate('/home')
+  const backToHome = async (e) => {
+   navigator('/home')
+  }
 
   const handleDeleteGoal = async (e, goalId, onboarding = false) => {
     if (onboarding === true) {
@@ -68,38 +74,35 @@ const AdjustGoals = (props) => {
           handleRounding={handleRounding}
         />
       ))}
-      <form className="column" autoComplete="off">
-        <div className="expense-list">
-          <label key="label1" htmlFor="">
-            Add Goal
-          </label>
+      <form className="adjust" autoComplete="off">
+        <div className="row">
+          <input
+            name="name"
+            required
+            placeholder="goal"
+            onChange={(e) => setName(e.target.value)}
+          />
 
-          <div className="" style={{ flexDirection: "row" }}>
-            <input
-              className="expense-amount"
-              style={{ width: "20vw" }}
-              name="name"
-              required
-              placeholder="add misc daily spending"
-              onChange={(e) => setName(e.target.value)}
-            />
+          <input
+            name="amount"
+            type="decimal"
+            id="amount"
+            placeholder="$ 0.00"
+            value={amount === 0 ? "" : amount}
+            onChange={(e) => setAmount(e.target.value)}
+            required
+          />
 
-            <input
-              className="expense-amount"
-              style={{ width: "13vw" }}
-              name="amount"
-              type="decimal"
-              id="amount"
-              placeholder="$ 0.00"
-              value={amount === 0 ? "" : amount}
-              onChange={(e) => setAmount(e.target.value)}
-              required
-            />
-          </div>
+          <button type="submit" onClick={handleAddGoal} className="form-plus">
+            +
+          </button>
         </div>
-
-        <button type="button" onClick={handleAddGoal} className="grey-plus">
-          +
+        <button 
+          type="button" 
+          className="submit"
+          onClick={backToHome}
+        >
+          Back to Home
         </button>
       </form>
     </>

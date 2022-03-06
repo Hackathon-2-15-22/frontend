@@ -6,7 +6,7 @@ const Spending = ({ user }) => {
   useEffect(() => {});
 
   return (
-    <main className="home">
+    <main className="column">
       <h1 className="title text-center">Add Spending</h1>
 
       <div className="box">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   createExpense,
   deleteExpense,
@@ -18,6 +19,10 @@ const DailySpending = (props) => {
   const current = new Date();
   const currentDate = current.toDateString().slice(4);
 
+  const navigator = useNavigate('/home')
+  const backToHome = async (e) => {
+    navigator('/home')
+  }
 
   const handleAddExpense = async (e) => {
     e.preventDefault();
@@ -115,7 +120,13 @@ const DailySpending = (props) => {
           </button>
         </div>
 
-        <button type="submit" className="submit">Save</button>
+        <button 
+          type="submit" 
+          className="submit"
+          onClick={backToHome}
+        >
+          Back to Home
+        </button>
       </form>
     </>
   );
