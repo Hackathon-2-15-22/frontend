@@ -103,6 +103,15 @@ button {
         @extend .grey-plus;
         background-color: $light-blue;
     }
+    &.form-plus {
+        @extend .minus;
+        // background-color: $dark-blue;
+    }
+    &.back {
+        @extend .b2;
+        @include center;
+        margin-top: 2vh;
+    }
 }
 
 span.green {
@@ -130,13 +139,12 @@ span.num {
 .nav {
     @include row;
     * {padding: 1vh;}
-    .logo {margin-left: 0.5rem;}
+    a {margin: auto 0;}
     height: 60px;
+    width: 100vw;
     position: sticky;
     top: 0;
-    background-color: #C3EDF2;
-    width: 100vw;
-
+    background-color: white;
 }
 
 .menu {
@@ -253,6 +261,7 @@ span.num {
 form * {align-items: flex-start;}
 
 .onboarding {
+    .title {margin: 5vh 0;}
     .header {
         background-color: $dark-grey;
         padding: 10px;
@@ -322,6 +331,8 @@ form * {align-items: flex-start;}
 .home {
     @include column;
     background-color: $light-blue;
+    height: max-content;
+    // html {background-color: $light-blue;}
 }
 
 .box {
